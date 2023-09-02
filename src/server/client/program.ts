@@ -58,7 +58,7 @@ const clubCode = 'BBFW72Z'
 export const getProgram = async (): Promise<Match[]> => {
      const result = await splFetch<RawMatch[]>('/programma', {
           query: {
-               aantaldagen: '7',
+               aantaldagen: '2',
                spelsoort: 've' // ve = veld, za = zaal, re = regulier
           }
      })
