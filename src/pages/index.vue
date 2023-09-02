@@ -3,7 +3,7 @@ import format from 'date-fns/format'
 import nlLocale from 'date-fns/locale/nl'
 const { data: program, refresh } = await useFetch('/api/program')
 
-mounted(() => {
+onMounted(() => {
     setInterval(() => {
         refresh()
     }, 1000 * 3600) // 1 hour
