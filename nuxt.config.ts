@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   routeRules: {
     '/selectie': {
-      swr: 3600
+      isr: 3600
     }
   },
   modules: [
@@ -13,5 +13,8 @@ export default defineNuxtConfig({
   ],
   image: {
     domains: ['nuxtjs.org']
+  },
+  build: {
+    transpile: ['date-fns']
   }
 })

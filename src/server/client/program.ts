@@ -1,4 +1,4 @@
-import { eachDayOfInterval, isTuesday, isThursday, format } from 'date-fns'
+import { eachDayOfInterval, isTuesday, isThursday } from 'date-fns'
 import { Match, EventType } from '~/types/match'
 import { splFetch } from './fetch'
 
