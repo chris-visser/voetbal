@@ -1,6 +1,39 @@
 <script setup lang="ts">
 import { formatDate } from '~/helpers/formatDate'
 import { Match } from '~/types/match';
+
+useHead({
+    title: 'Programma Selectie - SV de Rijp',
+    meta: [
+        {
+            hid: 'description',
+            name: 'description',
+            content: 'Beker, competitie, oefenwedstrijden en trainingen van de selectie van SV de Rijp',
+        },
+        {
+            hid: 'og:title',
+            property: 'og:title',
+            content: 'Programma Selectie - SV de Rijp',
+        },
+        {
+            hid: 'og:description',
+            property: 'og:description',
+            content: 'Programma Selectie SV de Rijp',
+        },
+        {
+            hid: 'og:image',
+            property: 'og:image',
+            content: `https://logoapi.voetbal.nl/logo.php?clubcode=BBFW72Z`,
+        },
+        {
+            hid: 'og:url',
+            property: 'og:url',
+            content: 'https://voetbal-app.netlify.app/selectie',
+        }
+    ],
+})
+
+
 const { data: program, refresh } = await useFetch<{ matches: Match[] }>('/api/program')
 
 onMounted(() => {
