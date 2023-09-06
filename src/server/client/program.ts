@@ -1,4 +1,5 @@
-import { eachDayOfInterval, isTuesday, isThursday } from 'date-fns'
+import { eachDayOfInterval, isTuesday, isThursday, addHours } from 'date-fns'
+import { utcToZonedTime } from 'date-fns-tz'
 import { Match, EventType } from '~/types/match'
 import { splFetch } from './fetch'
 
@@ -140,16 +141,13 @@ export const getPrograms = async ({
           getProgram({ days, teamCode, home, away })
      )))
 
-     programs[programs.length] = practiceEvents.map((date) => {
-          date.setTime(date.getTime() + 20 * 60 * 60 * 1000)
-          return {
-               startsAt: date,
-               type: 'training',
-               home: {
-                    name: 'Selectie',
-               }
+     programs[programs.length] = practiceEvents.map((date) => ({
+          startsAt: utcToZonedTime(addHours(date, 20), 'Europe/Amsterdam'),
+          type: 'training',
+          home: {
+               name: 'Selectie',
           }
-     })
+     }))
 
      const list: Match[] = []
 
@@ -163,7 +161,7 @@ export const getPrograms = async ({
                const event = program[j]
 
                // if (!list.find((item) => item.startsAt === item.startsAt && item.home.name === event.home.name)) {
-                    list.push(event)
+               list.push(event)
                // }
           }
      }
