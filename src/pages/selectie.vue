@@ -112,7 +112,7 @@ const events = computed(() => {
                     <td v-if="item.activity === 'Training'">
                     </td>
                     <td v-else class="whitespace-nowrap">
-                        <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.opponentClubCode}`" :alt="`Clublogo van ${item.opponent}`" class="inline-block w-6 mr-2" />
+                        <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.opponentClubCode}`" :alt="`Clublogo van ${item.opponent}`" class="inline-block max-w-6 max-h-6 mr-2" />
                         {{ item.opponent }}
                     </td>
                     <td>{{ item.time }}</td>
@@ -131,5 +131,8 @@ th,td {
 }
 tr:nth-child(even) {
     @apply bg-slate-200;
+}
+tr:hover {
+    @apply bg-slate-300;
 }
 </style>
