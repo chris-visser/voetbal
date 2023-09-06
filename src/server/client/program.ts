@@ -1,4 +1,4 @@
-import { eachDayOfInterval, isTuesday, isThursday, addHours } from 'date-fns'
+import { eachDayOfInterval, isTuesday, isThursday, setHours } from 'date-fns'
 import { utcToZonedTime } from 'date-fns-tz'
 import { Match, EventType } from '~/types/match'
 import { splFetch } from './fetch'
@@ -142,7 +142,7 @@ export const getPrograms = async ({
      )))
 
      programs[programs.length] = practiceEvents.map((date) => ({
-          startsAt: utcToZonedTime(addHours(date, 20), 'Europe/Amsterdam'),
+          startsAt: utcToZonedTime(setHours(date, 20), 'Europe/Amsterdam'),
           type: 'training',
           home: {
                name: 'Selectie',
