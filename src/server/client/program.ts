@@ -142,7 +142,7 @@ export const getPrograms = async ({
      )))
 
      programs[programs.length] = practiceEvents.map((date) => ({
-          startsAt: setHours(date, 20),
+          startsAt: utcToZonedTime(setHours(date, 18), 'Europe/Amsterdam'),
           type: 'training',
           home: {
                name: 'Selectie',
