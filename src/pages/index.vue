@@ -31,7 +31,7 @@ const matches = computed(() => {
                     <p class="text-sm text-slate-700" v-if="item.home.room">Kleedkamer {{ item.home.room }}</p>
                 </td>
                 <td class="w-14">
-                    <img :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`" class="w-full" />
+                    <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`" class="w-14" />
                 </td>
 
                 <td class="min-w-[100px] text-center">
