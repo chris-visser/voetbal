@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   routeRules: {
     '/selectie': {
-      isr: 3600
+      ssr: false
     }
   },
   modules: [
