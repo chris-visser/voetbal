@@ -149,6 +149,8 @@ export const getPrograms = async ({
           }
      }))
 
+     console.log(programs[2][0].startsAt)
+
      const list: Match[] = []
 
      // Flatten the programs
