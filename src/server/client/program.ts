@@ -142,7 +142,7 @@ export const getPrograms = async ({
      )))
 
      programs[programs.length] = practiceEvents.map((date) => ({
-          startsAt: format(utcToZonedTime(setHours(date, 20), 'Europe/Amsterdam'), "yyyy-MM-dd'T'HH:mm:ss.000xxx"),
+          startsAt: setHours(date, 20),
           type: 'training',
           home: {
                name: 'Selectie',
@@ -166,6 +166,6 @@ export const getPrograms = async ({
           }
      }
 
-     return list.sort((a, b) => new Date(a.startsAt).getTime() - new Date(b.startsAt).getTime())
+     return list.sort((a, b) => a.startsAt.getTime() - b.startsAt.getTime())
 
 }
