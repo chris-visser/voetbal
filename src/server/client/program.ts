@@ -122,12 +122,21 @@ export type GetProgramsParams = Omit<GetProgramParams, 'teamCode'> & {
      teamCodes?: number[];
 }
 
+const fixTime = (date: Date) => {
+     const targetTime = '20:00:00.000'
+     const dutchTime = utcToZonedTime(date, "Europe/Amsterdam")
+     const dateStr = format(dutchTime, 'yyyy-MM-dd')
+     const targetDateTime = new Date(`${dateStr}T${targetTime}+02:00`)
+
+     return targetDateTime
+}
+
 const getPracticeEvents = (from: Date, till: Date) => {
      // Create an array of all dates within the specified interval
-     const allDates = eachDayOfInterval({ start: from, end: till });
+     const allDates = eachDayOfInterval({ start: from, end: till })
 
      // Filter the dates to keep only Tuesdays and Thursdays
-     return allDates.filter((date) => isTuesday(date) || isThursday(date));
+     return allDates.filter((date) => isTuesday(date) || isThursday(date)).map(fixTime)
 }
 
 export const getPrograms = async ({
@@ -136,20 +145,21 @@ export const getPrograms = async ({
      home = true,
      away = true
 }: GetProgramsParams = {}): Promise<Match[]> => {
-     const practiceEvents = getPracticeEvents(new Date(), new Date('2024-06-01'))
+
+     const from = fixTime(new Date())
+
+     const practiceEvents = getPracticeEvents(from, new Date('2024-06-01T00:00:00Z'))
      const programs = await Promise.all(teamCodes.map((teamCode) => (
           getProgram({ days, teamCode, home, away })
      )))
 
-     programs[programs.length] = practiceEvents.map((date) => ({
-          startsAt: utcToZonedTime(setHours(date, 18), 'Europe/Amsterdam'),
+     programs[programs.length] = practiceEvents.map((startsAt) => ({
+          startsAt,
           type: 'training',
           home: {
                name: 'Selectie',
           }
      }))
-
-     console.log(programs[2][0].startsAt)
 
      const list: Match[] = []
 
