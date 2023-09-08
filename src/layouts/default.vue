@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { id } from 'date-fns/locale';
+
 const { data, refresh } = await useFetch<{ version: string }>('/api/version')
 
 onMounted(() => {
@@ -12,18 +14,34 @@ onMounted(() => {
 let prevVersion = ref(data.value?.version)
 
 watchEffect(() => {
-    if(prevVersion.value === data.value?.version) {
+    if (prevVersion.value === data.value?.version) {
         return
-    }	
+    }
     prevVersion.value = data.value?.version
     window.location.reload()
+})
+
+const video = ref<HTMLVideoElement | null>(null)
+
+onMounted(() => {
+    if (!video.value) {
+        return
+    }
+
+    video.value.addEventListener('ended', function () {
+        if(!video.value) {
+            return
+        }
+        video.value.currentTime = 0
+    })
 })
 </script>
 
 <template>
     <div class="overflow-hidden h-screen w-screen absolute">
-        <video autoplay muted loop playsinline id="video-background" class="min-h-full aspect-video min-w-full">
-            <source src="https://spiders-place.s3.eu-central-1.amazonaws.com/drone-shot-sv-de-rijp.mp4" type="video/mp4" autoplay>
+        <video autoplay muted loop playsinline ref="video" class="min-h-full aspect-video min-w-full">
+            <source src="https://spiders-place.s3.eu-central-1.amazonaws.com/drone-shot-sv-de-rijp.mp4" type="video/mp4"
+                autoplay>
             <!-- Add additional source elements for different video formats (WebM, Ogg) -->
         </video>
     </div>
