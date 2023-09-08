@@ -94,7 +94,7 @@ const getDayName = (date: Date): string => {
                     <td class="p-3 whitespace-nowrap pr-6 items-center">
                         {{ normalizeName(item.home.name) }}
                         <div class="text-xs">
-                            {{ item.home.room }}
+                            Kleedkamer {{ item.home.room }}
                         </div>
                     </td>
                     <td class="w-8 text-center mix-blend-multiply">
@@ -104,7 +104,7 @@ const getDayName = (date: Date): string => {
                     <td class="p-3 whitespace-nowrap items-center">
                         {{ item.away.name }}
                         <div class="text-xs">
-                            {{ item.away.room }}
+                            Kleedkamer {{ item.away.room }}
                         </div>
                     </td>
                 </tr>
