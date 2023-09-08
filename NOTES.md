@@ -22,3 +22,9 @@
 - Clubwinkel
 - Club TV
 - Administratie
+
+
+- Youtube kanaal indelen
+- Mailadressen
+- Inhoudelijk site, 
+    - Trainers overzicht

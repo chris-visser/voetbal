@@ -74,6 +74,7 @@ const events = computed(() => {
             day: formatDate(match.startsAt, 'EEEE'),
             activity: activityMap[match.type] || 'Oefen',
             note: '',
+            participants: match.participants,
             homeAway: match.isHome ? 'Thuis' : 'Uit',
             opponent: (match.isHome ? match?.away?.name : match?.home?.name) || '',
             opponentClubCode: (match.isHome ? match?.away?.clubCode : match?.home?.clubCode) || '',
@@ -109,7 +110,7 @@ const events = computed(() => {
                     <td>{{ item.activity }}</td>
                     <td>{{ item.note }}</td>
                     <td>{{ item.activity === 'Training' ? '' : item.homeAway }}</td>
-                    <td v-if="item.activity === 'Training'">
+                    <td v-if="item.activity === 'Training' || !item.opponent">
                     </td>
                     <td v-else class="whitespace-nowrap">
                         <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.opponentClubCode}`" :alt="`Clublogo van ${item.opponent}`" class="inline-block max-w-6 max-h-6 mr-2" />

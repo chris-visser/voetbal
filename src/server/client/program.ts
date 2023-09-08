@@ -74,9 +74,9 @@ export const getProgram = async ({
      const query = {
           ...(days ? { aantaldagen: `${days}` } : {}),
           ...(teamCode ? { teamcode: `${teamCode}` } : {}),
-          ...(home ? { thuis: 'JA' } : {}),
-          ...(away ? { uit: 'JA' } : {})
-          // spelsoort: 've' // ve = veld, za = zaal, re = regulier  
+          ...(home ? { thuis: 'JA' } : { thuis: 'NEE' }),
+          ...(away ? { uit: 'JA' } : { uit: 'NEE' }),
+          spelsoort: 've' // ve = veld, za = zaal, re = regulier  
      }
 
      const result = await splFetch<RawMatch[]>('/programma', {
@@ -139,6 +139,81 @@ const getPracticeEvents = (from: Date, till: Date) => {
      return allDates.filter((date) => isTuesday(date) || isThursday(date)).map(fixTime)
 }
 
+const freeDates = []
+
+const events = [{
+     startsAt: new Date('2023-10-21T00:00:00Z'),
+     endsAt: new Date('2023-10-22T00:00:00Z'),
+     time: undefined,
+     type: 'catchUpCup',
+},{
+     startsAt: new Date('2023-12-16T00:00:00Z'),
+     endsAt: new Date('2023-12-17T00:00:00Z'),
+     time: undefined,
+     type: 'catchUpCup',
+},{
+     startsAt: new Date('2023-12-23T00:00:00Z'),
+     endsAt: new Date('2023-12-24T00:00:00Z'),
+     time: undefined,
+     type: 'free',  
+},{
+     startsAt: new Date('2023-12-30T00:00:00Z'),
+     endsAt: new Date('2024-01-05T00:00:00Z'),
+     time: undefined,
+     type: 'free',
+},{
+     startsAt: new Date('2024-01-06T00:00:00Z'),
+     endsAt: new Date('2024-01-07T00:00:00Z'),
+     time: undefined,
+     type: 'free',
+},{
+     startsAt: new Date('2024-01-13T00:00:00Z'),
+     endsAt: new Date('2024-01-14T00:00:00Z'),
+     time: undefined,
+     type: 'catchUpCup',
+},{
+     startsAt: new Date('2024-02-10T00:00:00Z'),
+     endsAt: new Date('2024-02-11T00:00:00Z'),
+     time: undefined,
+     type: 'catchUpCup',
+},{
+     startsAt: new Date('2024-02-17T00:00:00Z'),
+     endsAt: new Date('2024-02-18T00:00:00Z'),
+     time: undefined,
+     type: 'catchUpCup',
+},{
+     startsAt: new Date('2024-03-30T00:00:00Z'),
+     endsAt: new Date('2024-03-30T00:00:00Z'),
+     time: undefined,
+     type: 'catchUpCup',
+},{
+     startsAt: new Date('2024-04-01T00:00:00Z'),
+     endsAt: new Date('2024-04-01T00:00:00Z'),
+     time: undefined,
+     type: 'catchUpCup',
+},{
+     startsAt: new Date('2024-05-05T00:00:00Z'),
+     endsAt: new Date('2024-05-05T00:00:00Z'),
+     time: undefined,
+     type: 'catchUpCup',
+},{
+     startsAt: new Date('2024-06-01T00:00:00Z'),
+     endsAt: new Date('2024-06-02T00:00:00Z'),
+     time: undefined,
+     type: 'postCompetition',
+},{
+     startsAt: new Date('2024-06-08T00:00:00Z'),
+     endsAt: new Date('2024-06-09T00:00:00Z'),
+     time: undefined,
+     type: 'postCompetition',
+},{
+     startsAt: new Date('2024-06-15T00:00:00Z'),
+     endsAt: new Date('2024-06-16T00:00:00Z'),
+     time: undefined,
+     type: 'postCompetition',
+}]
+
+
 export const getPrograms = async ({
      days = 7,
      teamCodes = [],
@@ -147,7 +222,6 @@ export const getPrograms = async ({
 }: GetProgramsParams = {}): Promise<Match[]> => {
 
      const from = fixTime(new Date())
-
      const practiceEvents = getPracticeEvents(from, new Date('2024-06-01T00:00:00Z'))
      const programs = await Promise.all(teamCodes.map((teamCode) => (
           getProgram({ days, teamCode, home, away })
@@ -159,6 +233,16 @@ export const getPrograms = async ({
           home: {
                name: 'Selectie',
           }
+     }))
+
+     programs[programs.length] = events.map((event) => ({
+          startsAt: event.startsAt,
+          endsAt: event.endsAt,
+          type: event.type,
+          home: {
+               name: 'Selectie'
+          },
+          participants: [],
      }))
 
      const list: Match[] = []

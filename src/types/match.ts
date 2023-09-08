@@ -19,6 +19,7 @@ export type Match = {
     isHome?: boolean;
     home: MatchTeam;
     away?: MatchTeam;
+    participants?: MatchTeam[];
     referee?: MatchParticipant;
     type: EventType;
 }

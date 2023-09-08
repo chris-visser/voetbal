@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import format from 'date-fns/format'
 import nlLocale from 'date-fns/locale/nl'
 const { data: program, refresh } = await useFetch('/api/program')
@@ -9,47 +9,89 @@ onMounted(() => {
     }, 1000 * 3600) // 1 hour
 })
 
+const normalizeName = (name: string): string => {
+    const filteredName = name.replace('Rijp (de) ', '')
+    if(!isNaN(parseInt(filteredName, 10))) {
+        return `${filteredName}e elftal`
+    }
+    return filteredName
+}
+
 const matches = computed(() => {
     return program.value.matches.map((match) => {
         return {
             ...match,
+            home: {
+                ...match.home,
+                name: normalizeName(match.home.name)
+            },
             startsAt: new Date(match.startsAt)
         }
     })
 })
+
+const teams = computed(() => {
+    return program.value.matches.reduce((acc, match) => [
+        ...acc,
+        {
+            name: match.home.name,
+            clubCode: match.home.clubCode,
+            room: match.home.room
+        },
+        {
+            name: match.away.name,
+            clubCode: match.away.clubCode,
+            room: match.away.room
+        }
+    ], [])
+})
 </script>
 
 <template>
-    <main class="min-h-screen p-12">
-        <h2 class="text-4xl font-bold text-center mb-12 m-auto">Veld en Kleedkamers</h2>
+    <main class="relative flex flex-wrap justify-between w-full p-16">
+        <section class="p-8 bg-white/80 rounded-md">
+            <h2 class="font-bold text-2xl text-center mb-8">Thuisprogramma vandaag</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="text-left py-2 pr-3"></th>
+                        <th class="text-left px-3" colspan="2">Team</th>
+                        <th class="text-left px-3" colspan="2">Uit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in matches" :key="item.code">
+                        <td class="py-3 pr-3">
+                            {{ format(item.startsAt, 'HH:mm', { locale: nlLocale }) }}
+                            <div class="text-xs">
+                                {{ item.field }}
+                            </div>
+                        </td>
+                        <td class="w-8 text-center items-center">
+                            <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`"
+                                :alt="`Clublogo van ${item.home.name}`" class="max-w-8 max-h-8" />
+                        </td>
+                        <td class="p-3 whitespace-nowrap pr-6 items-center">
+                            {{ item.home.name }}
+                            <div class="text-xs">
+                                {{ item.home.room }}
+                            </div>
+                        </td>
+                        <td class="w-8 text-center mix-blend-multiply">
+                            <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.away.clubCode}`"
+                                :alt="`Clublogo van ${item.away.name}`" class="max-w-8 max-h-8" />
+                        </td>
+                        <td class="p-3 whitespace-nowrap items-center">
+                            {{ item.away.name }}
+                            <div class="text-xs">
+                                {{ item.away.room }}
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-        <table class="m-auto">
-            <tr v-for="item in matches" :key="item.code"
-                class="px-12 flex items-center justify-center border-b-2 gap-6 py-6 whitespace-nowrap">
-                <td class="text-right w-[300px]">
-                    <h3 class="font-semibold">{{ item.home.name }}</h3>
-                    <p class="text-sm text-slate-700" v-if="item.home.room">Kleedkamer {{ item.home.room }}</p>
-                </td>
-                <td class="w-14">
-                    <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`" class="w-14" />
-                </td>
 
-                <td class="min-w-[100px] text-center">
-                    {{ format(item.startsAt, 'EEEE', { locale: nlLocale }) }}<br />
-                    <span class="font-bold text-xl">{{ format(item.startsAt, 'HH:mm') }}<br /></span>
-                    {{ item.field.charAt(0).toUpperCase() + item.field.slice(1) }}
-                </td>
-
-
-                <td class="w-14 text-center">
-                    <img :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.away.clubCode}`" class="w-full" />
-                </td>
-
-                <td class="w-[300px]">
-                    <h3 class="font-semibold">{{ item.away.name }}</h3>
-                    <p class="text-sm text-slate-700" v-if="item.away.room">Kleedkamer {{ item.away.room }}</p>
-                </td>
-            </tr>
-        </table>
     </main>
 </template>
