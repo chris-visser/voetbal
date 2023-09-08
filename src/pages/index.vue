@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { format, getDay, isToday, isTomorrow } from 'date-fns'
+import { format, getDay } from 'date-fns'
 import { Match } from '~/types/match'
 import nlLocale from 'date-fns/locale/nl'
 const { data: program, refresh } = await useFetch<{ matches: Match[] }>('/api/program', {
     query: {
-        days: 2,
+        days: 6,
         away: false
     }
 })
@@ -12,7 +12,7 @@ const { data: program, refresh } = await useFetch<{ matches: Match[] }>('/api/pr
 onMounted(() => {
     setInterval(() => {
         refresh()
-    }, 1000 * 3600) // 1 hour
+    }, 1000 * 60 * 10) // 10 minutes
 })
 
 const normalizeName = (name: string): string => {
@@ -24,13 +24,13 @@ const normalizeName = (name: string): string => {
 }
 
 type MatchDay = {
-    matches: Match[]; 
-    day: number; 
+    matches: Match[];
+    day: number;
     date: Date;
 }
 
 const days = computed(() => {
-    if(!program.value?.matches) {
+    if (!program.value?.matches) {
         return []
     }
 
@@ -52,13 +52,13 @@ const days = computed(() => {
                     }]
                 }
             ]
-        } 
+        }
 
         list[dayIndex].matches.push({
             ...match,
             startsAt: date
         })
-        
+
         return list
     }, [])
 })
@@ -78,7 +78,9 @@ const ucFirst = (string: string): string => {
             <table>
                 <tr v-for="item in days[dayNumber].matches" :key="item.code">
                     <td class="py-3 pr-6">
-                        {{ format(item.startsAt, 'HH:mm', { locale: nlLocale }) }}
+                        <span class="font-semibold">
+                            {{ format(item.startsAt, 'HH:mm', { locale: nlLocale }) }}
+                        </span>
                         <div class="text-xs" v-if="item.field">
                             {{ ucFirst(item.field) }}
                         </div>
@@ -88,18 +90,23 @@ const ucFirst = (string: string): string => {
                             :alt="`Clublogo van ${item.home.name}`" class="max-w-8 max-h-8" />
                     </td>
                     <td class="p-3 whitespace-nowrap pr-6 items-center">
-                        {{ normalizeName(item.home.name) }}
+                        <span class="font-semibold">
+                            {{ normalizeName(item.home.name) }}
+                        </span>
                         <div class="text-xs">
                             Kleedkamer {{ item.home.room ? item.home.room : 'niet bekend' }}
                         </div>
                     </td>
                     <td class="w-8 text-center mix-blend-multiply">
-                        <NuxtImg v-if="item.away" :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.away.clubCode}`"
+                        <NuxtImg v-if="item.away"
+                            :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.away.clubCode}`"
                             :alt="`Clublogo van ${item.away.name}`" class="max-w-8 max-h-8" />
                     </td>
-                    
+
                     <td class="p-3 whitespace-nowrap items-center" v-if="item.away">
-                        {{ item.away.name }}
+                        <span class="font-semibold">
+                            {{ item.away.name }}
+                        </span>
                         <div class="text-xs">
                             Kleedkamer {{ item.away.room ? item.away.room : 'niet bekend' }}
                         </div>
@@ -107,7 +114,7 @@ const ucFirst = (string: string): string => {
                     <td v-else>
 
                     </td>
-                    
+
                 </tr>
             </table>
         </section>
