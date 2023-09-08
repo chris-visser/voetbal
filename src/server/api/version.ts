@@ -2,9 +2,7 @@
 
 export default defineEventHandler(async (event) => {
 
-    // const matches = await getTeam()
-
     return {
-        version: 'v2'
+        version: 'v0.0.1-alpha-4'
     }
   })
