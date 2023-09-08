@@ -21,27 +21,32 @@ watchEffect(() => {
     window.location.reload()
 })
 
-const video = ref<HTMLVideoElement | null>(null)
+// const video = ref<HTMLVideoElement | null>(null)
 
-onMounted(() => {
-    if (!video.value) {
-        return
-    }
-
-    video.value.addEventListener('ended', function () {
-        if(!video.value) {
-            return
-        }
-        video.value.currentTime = 0
-    })
-})
+// onMounted(() => {
+//     console.log('VIDEO MOUNTED')
+//     if (!video.value) {
+//         return
+//     }
+//     console.log('VIDEO LISTENER SET')	
+//     video.value.addEventListener('ended', function () {
+//         console.log('VIDEO ENDED')
+//         if(!video.value) {
+//             return
+//         }
+//         console.log('VIDEO RESTART')
+//         video.value.currentTime = 0
+//         setTimeout(() => {
+//             video.value?.play()
+//         }, 1000)
+//     })
+// })
 </script>
 
 <template>
     <div class="overflow-hidden h-screen w-screen absolute">
-        <video autoplay muted loop playsinline ref="video" class="min-h-full aspect-video min-w-full">
-            <source src="https://spiders-place.s3.eu-central-1.amazonaws.com/drone-shot-sv-de-rijp.mp4" type="video/mp4"
-                autoplay>
+        <video autoplay muted loop ref="video" class="min-h-full aspect-video min-w-full">
+            <source src="https://dq7qi3p659m75.cloudfront.net/drone-sv-de-rijp.mp4" type="video/mp4">
             <!-- Add additional source elements for different video formats (WebM, Ogg) -->
         </video>
     </div>
