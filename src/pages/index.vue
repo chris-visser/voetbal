@@ -66,6 +66,9 @@ const days = computed(() => {
 const getDayName = (date: Date): string => {
     return format(date, 'EEEE', { locale: nlLocale })
 }
+const ucFirst = (string: string): string => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 </script>
 
 <template>
@@ -76,8 +79,8 @@ const getDayName = (date: Date): string => {
                 <tr v-for="item in days[dayNumber].matches" :key="item.code">
                     <td class="py-3 pr-6">
                         {{ format(item.startsAt, 'HH:mm', { locale: nlLocale }) }}
-                        <div class="text-xs">
-                            {{ item.field }}
+                        <div class="text-xs" v-if="item.field">
+                            {{ ucFirst(item.field) }}
                         </div>
                     </td>
                     <td class="w-8 text-center items-center">
