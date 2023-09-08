@@ -64,19 +64,12 @@ const days = computed(() => {
 })
 
 const getDayName = (date: Date): string => {
-    if(isToday(date)) {
-        return 'vandaag'
-    }
-    if(isTomorrow(date)) {
-        return 'morgen'
-    }
-
     return format(date, 'EEEE', { locale: nlLocale })
 }
 </script>
 
 <template>
-    <main class="relative flex flex-wrap justify-between w-full p-16">
+    <main class="relative flex flex-wrap justify-between items-start w-full p-16">
         <section class="p-8 bg-white/80 rounded-md" v-for="dayNumber in [0, 1]" :key="dayNumber">
             <h2 class="font-bold text-2xl text-center mb-8">Thuisprogramma {{ getDayName(days[dayNumber].date) }}</h2>
             <table>
@@ -94,19 +87,24 @@ const getDayName = (date: Date): string => {
                     <td class="p-3 whitespace-nowrap pr-6 items-center">
                         {{ normalizeName(item.home.name) }}
                         <div class="text-xs">
-                            Kleedkamer {{ item.home.room }}
+                            Kleedkamer {{ item.home.room ? item.home.room : 'niet bekend' }}
                         </div>
                     </td>
                     <td class="w-8 text-center mix-blend-multiply">
-                        <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.away.clubCode}`"
+                        <NuxtImg v-if="item.away" :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.away.clubCode}`"
                             :alt="`Clublogo van ${item.away.name}`" class="max-w-8 max-h-8" />
                     </td>
-                    <td class="p-3 whitespace-nowrap items-center">
+                    
+                    <td class="p-3 whitespace-nowrap items-center" v-if="item.away">
                         {{ item.away.name }}
                         <div class="text-xs">
-                            Kleedkamer {{ item.away.room }}
+                            Kleedkamer {{ item.away.room ? item.away.room : 'niet bekend' }}
                         </div>
                     </td>
+                    <td v-else>
+
+                    </td>
+                    
                 </tr>
             </table>
         </section>
