@@ -2,11 +2,6 @@
 export default defineNuxtConfig({
   srcDir: 'src',
   devtools: { enabled: true },
-  routeRules: {
-    '/selectie': {
-      ssr: false
-    }
-  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/image'
