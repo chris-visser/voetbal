@@ -83,9 +83,9 @@ const ucFirst = (string: string): string => {
                         </div>
                         {{ item.field && ucFirst(item.field) }}
                     </td>
-                    <td class="w-8 text-center items-center">
+                    <td class="w-9 text-center items-center">
                         <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`"
-                            :alt="`Clublogo van ${item.home.name}`" class="max-w-8 max-h-8" />
+                            :alt="`Clublogo van ${item.home.name}`" class="max-w-9 max-h-9" />
                     </td>
                     <td class="p-2 whitespace-nowrap pr-6 items-center">
                         <span class="font-semibold">
@@ -95,10 +95,10 @@ const ucFirst = (string: string): string => {
                             Kleedkamer {{ item.home.room ? item.home.room : 'niet bekend' }}
                         </div>
                     </td>
-                    <td class="w-8 text-center mix-blend-multiply">
+                    <td class="w-9 text-center mix-blend-multiply">
                         <NuxtImg v-if="item.away"
                             :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.away.clubCode}`"
-                            :alt="`Clublogo van ${item.away.name}`" class="max-w-8 max-h-8" />
+                            :alt="`Clublogo van ${item.away.name}`" class="max-w-9 max-h-9" />
                     </td>
 
                     <td class="p-2 whitespace-nowrap items-center" v-if="item.away">
