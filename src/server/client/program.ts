@@ -86,8 +86,9 @@ export const getProgram = async ({
      if (!result?.length) {
           return []
      }
+     const now = new Date().getTime()
 
-     const matches = result.map((item) => ({
+     const matches = result.filter(item => new Date(item.wedstrijddatum).getTime() > now).map((item) => ({
           code: item.wedstrijdcode,
           startsAt: new Date(item.wedstrijddatum),
           type: normalizeMatchType(item.competitiesoort),
