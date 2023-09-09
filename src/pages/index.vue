@@ -66,8 +66,8 @@ const days = computed(() => {
 const getDayName = (date: Date): string => {
     return format(date, 'EEEE', { locale: nlLocale })
 }
-const ucFirst = (string: string): string => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+const fixFieldName = (name: string): string => {
+    return name.replace('veld ', '');
 }
 </script>
 
@@ -81,7 +81,8 @@ const ucFirst = (string: string): string => {
                         <div class="font-semibold">
                             {{ format(item.startsAt, 'HH:mm', { locale: nlLocale }) }}
                         </div>
-                        {{ item.field && ucFirst(item.field) }}
+                        <Icon name="game-icons:soccer-field" size="20" class="-mt-1" />
+                        {{ item.field && fixFieldName(item.field) }}
                     </td>
                     <td class="w-9 text-center items-center">
                         <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`"
@@ -92,7 +93,8 @@ const ucFirst = (string: string): string => {
                             {{ normalizeName(item.home.name) }}
                         </span>
                         <div class="text-sm">
-                            Kleedkamer {{ item.home.room ? item.home.room : 'niet bekend' }}
+                            <Icon name="fluent:conference-room-20-regular" size="20" class="-mt-1" />
+                            {{ item.home.room ? item.home.room : 'niet bekend' }}
                         </div>
                     </td>
                     <td class="w-9 text-center mix-blend-multiply">
@@ -106,7 +108,8 @@ const ucFirst = (string: string): string => {
                             {{ item.away.name }}
                         </span>
                         <div class="text-sm">
-                            Kleedkamer {{ item.away.room ? item.away.room : 'niet bekend' }}
+                            <Icon name="fluent:conference-room-20-regular" size="20" class="-mt-1" />
+                            {{ item.away.room ? item.away.room : 'niet bekend' }}
                         </div>
                     </td>
                     <td v-else>
