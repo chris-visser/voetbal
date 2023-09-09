@@ -73,7 +73,7 @@ const ucFirst = (string: string): string => {
 
 <template>
     <main class="relative flex flex-wrap justify-between items-start w-full p-8">
-        <section class="p-8 bg-white/90 rounded-md" v-for="dayNumber in [0, 1]" :key="dayNumber">
+        <section class="p-8 bg-white rounded-md" v-for="dayNumber in [0, 1]" :key="dayNumber">
             <h2 class="font-bold text-2xl text-center mb-8">Thuisprogramma {{ getDayName(days[dayNumber].date) }}</h2>
             <table>
                 <tr v-for="item in days[dayNumber].matches" :key="item.code">
