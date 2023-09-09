@@ -2,7 +2,8 @@
 
 const ipMap: Record<string, string> = {
     '::ffff:127.0.0.1': 'Thuis (development)',
-    '3.82.96.116': 'SV de Rijp',
+    // '3.82.96.116': 'SV de Rijp',
+    '100.24.64.225': 'SV de Rijp',
     '83.84.2.172': 'Thuis'
 }
 
