@@ -10,15 +10,20 @@ const VERSION = 'v0.0.4-beta'
 
 export default defineEventHandler(async (event) => {
     const forwardedFor = getHeader(event, 'x-forwarded-for')
-    console.log(forwardedFor, event.headers)
+
     if(!forwardedFor) {
         return {
             version: VERSION
         }
     }
     
-    const clientName = ipMap[forwardedFor] || 'Onbekend'
-    console.log(`Version ping from "${clientName}" `)
+    const clientName = ipMap[forwardedFor]
+    if(!clientName) {
+        console.log(`Version ping from unknown IP "${forwardedFor}" `)
+    } else {
+        console.log(`Version ping from "${clientName}" `)
+    }
+    
     // const storage = useStorage('redis')
 
     return {
