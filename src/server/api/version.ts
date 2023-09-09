@@ -10,6 +10,7 @@ const VERSION = 'v0.0.4-beta'
 
 export default defineEventHandler(async (event) => {
     const forwardedFor = getHeader(event, 'x-forwarded-for')
+    console.log(forwardedFor, event.headers)
     if(!forwardedFor) {
         return {
             version: VERSION
