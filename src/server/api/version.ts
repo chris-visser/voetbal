@@ -12,6 +12,7 @@ export default defineEventHandler(async (event) => {
     const forwardedFor = getHeader(event, 'x-forwarded-for')
 
     if(!forwardedFor) {
+        console.log('Could not find x-forwarded-for header', event.headers)
         return {
             version: VERSION
         }
