@@ -72,28 +72,26 @@ const ucFirst = (string: string): string => {
 </script>
 
 <template>
-    <main class="relative flex flex-wrap justify-between items-start w-full p-16">
-        <section class="p-8 bg-white/80 rounded-md" v-for="dayNumber in [0, 1]" :key="dayNumber">
+    <main class="relative flex flex-wrap justify-between items-start w-full p-8">
+        <section class="p-8 bg-white/90 rounded-md" v-for="dayNumber in [0, 1]" :key="dayNumber">
             <h2 class="font-bold text-2xl text-center mb-8">Thuisprogramma {{ getDayName(days[dayNumber].date) }}</h2>
             <table>
                 <tr v-for="item in days[dayNumber].matches" :key="item.code">
-                    <td class="py-3 pr-6">
-                        <span class="font-semibold">
+                    <td class="py-2 pr-6">
+                        <div class="font-semibold">
                             {{ format(item.startsAt, 'HH:mm', { locale: nlLocale }) }}
-                        </span>
-                        <div class="text-xs" v-if="item.field">
-                            {{ ucFirst(item.field) }}
                         </div>
+                        {{ item.field && ucFirst(item.field) }}
                     </td>
                     <td class="w-8 text-center items-center">
                         <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`"
                             :alt="`Clublogo van ${item.home.name}`" class="max-w-8 max-h-8" />
                     </td>
-                    <td class="p-3 whitespace-nowrap pr-6 items-center">
+                    <td class="p-2 whitespace-nowrap pr-6 items-center">
                         <span class="font-semibold">
                             {{ normalizeName(item.home.name) }}
                         </span>
-                        <div class="text-xs">
+                        <div class="text-sm">
                             Kleedkamer {{ item.home.room ? item.home.room : 'niet bekend' }}
                         </div>
                     </td>
@@ -103,11 +101,11 @@ const ucFirst = (string: string): string => {
                             :alt="`Clublogo van ${item.away.name}`" class="max-w-8 max-h-8" />
                     </td>
 
-                    <td class="p-3 whitespace-nowrap items-center" v-if="item.away">
+                    <td class="p-2 whitespace-nowrap items-center" v-if="item.away">
                         <span class="font-semibold">
                             {{ item.away.name }}
                         </span>
-                        <div class="text-xs">
+                        <div class="text-sm">
                             Kleedkamer {{ item.away.room ? item.away.room : 'niet bekend' }}
                         </div>
                     </td>
