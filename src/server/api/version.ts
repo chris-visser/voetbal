@@ -2,7 +2,7 @@
 
 export default defineEventHandler(async (event) => {
 
-    console.log(event.headers)
+    console.log('Version ping from', event.headers)
     // const storage = useStorage('redis')
 
     return {
