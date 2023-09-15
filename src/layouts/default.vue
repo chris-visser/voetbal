@@ -54,8 +54,8 @@ watchEffect(() => {
     <slot />
 
     <footer>
-        <p class="fixed bottom-8 right-8 text-white">
+        <!-- <p class="fixed bottom-8 right-8 text-white">
             <span v-if="data?.version">{{ data.version }}</span>
-        </p>
+        </p> -->
     </footer>
 </template>
