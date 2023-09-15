@@ -68,8 +68,8 @@ const days = computed(() => {
             :matches="days[1].matches" 
         />
         <section class="p-8 bg-white rounded-md flex flex-col items-center">
-            <h2 class="font-bold text-2xl text-center mb-5">Sponsor wedstrijdbal</h2>
-            <NuxtImg src="/sportcafe-oosterven.webp" class="h-[150px] inline-block mb-2" alt="Sponsor wedstrijdbal - Sportcafe Oosterven" />
+            <h2 class="font-bold text-2xl text-center mb-5 text-primary-400">Sponsor wedstrijdbal</h2>
+            <img src="/sportcafe-oosterven.webp" class="h-[150px] inline-block mb-2" alt="Sponsor wedstrijdbal - Sportcafe Oosterven" />
             <p class="text-center max-w-[400px]">
                 De wedstrijdbal van het 1e elftal wordt gesponsord door onze buren Ger en Joyce Huider van Sportcafé De Oosterven, de perfecte locatie voor elk feest. 
             </p>

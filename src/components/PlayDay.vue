@@ -18,14 +18,14 @@ const normalizeName = (name: string): string => {
 
 <template>
         <section class="p-8 bg-white rounded-md mb-8">
-            <h2 class="font-bold text-2xl text-center mb-8">Thuisprogramma {{ formatDate(date, 'EEEE') }}</h2>
+            <h2 class="font-bold text-2xl text-center mb-8 text-primary-400">Thuisprogramma {{ formatDate(date, 'EEEE') }}</h2>
             <table>
                 <tr v-for="item in matches" :key="item.code">
                     <td class="py-2 pr-6">
                         <div class="font-semibold">
                             {{ formatDate(item.startsAt, 'HH:mm') }}
                         </div>
-                        <Icon name="game-icons:soccer-field" size="20" class="-mt-1" />
+                        <Icon name="game-icons:soccer-field" size="20" class="-mt-1" color="#009900" />
                         {{ item.field && item.field.replace('veld ', '') }}
                     </td>
                     <td class="w-9 text-center items-center">
