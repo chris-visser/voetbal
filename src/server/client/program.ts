@@ -86,7 +86,7 @@ export const getProgram = async ({
      if (!result?.length) {
           return []
      }
-     const now = new Date().getTime() + (1000 * 60 * 60 * 1.5)
+     const now = new Date().getTime() - (1000 * 60 * 60 * 1.5)
 
      const matches = result.filter(item => new Date(item.wedstrijddatum).getTime() > now).map((item) => ({
           code: item.wedstrijdcode,
