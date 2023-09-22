@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { Match } from '~/types/match'
 import { formatDate } from '~/helpers/formatDate'
+import { getDay } from 'date-fns'
 
-defineProps<{
+const props = defineProps<{
     date: Date;
     matches: Match[];
 }>()
@@ -14,6 +15,14 @@ const normalizeName = (name: string): string => {
     }
     return filteredName
 }
+
+const dressingRoomLabel = computed(() => {
+  // Official matches occur mostly on saturday and sunday
+  // If no dressingRoom is set on other days, mark it as free of choice
+  return ![0,6].includes(getDay(props.date)) ? 'naar keuze' : 'niet bekend'
+})
+
+
 </script>
 
 <template>
@@ -38,7 +47,7 @@ const normalizeName = (name: string): string => {
                         </span>
                         <div class="text-sm">
                             <Icon name="fluent:conference-room-20-regular" size="20" class="-mt-1" />
-                            {{ item.home.room ? item.home.room : 'niet bekend' }}
+                            {{ item.home.room ? item.home.room : dressingRoomLabel }}
                         </div>
                     </td>
 
@@ -54,7 +63,7 @@ const normalizeName = (name: string): string => {
                         </span>
                         <div class="text-sm">
                             <Icon name="fluent:conference-room-20-regular" size="20" class="-mt-1" />
-                            {{ item.away.room ? item.away.room : 'niet bekend' }}
+                            {{ item.away.room ? item.away.room : dressingRoomLabel }}
                         </div>
                     </td>
                     <td v-else>
