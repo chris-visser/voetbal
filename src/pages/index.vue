@@ -77,16 +77,16 @@ const sponsorLeft = computed(() => {
 
       <ul class="flex items-center content-center gap-8 self-end">
         <li class="bg-white rounded-lg h-[120px] py-8 flex-1 flex items-center justify-center">
-          <NuxtImg src="/sponsors/plus.png" class="w-[70%]" />
+          <img src="/sponsors/plus.png" class="w-[70%]" />
         </li>
         <li class="bg-white rounded-lg h-[120px] py-8 flex-1 flex items-center justify-center">
-          <NuxtImg src="/sponsors/ranko.png" class="w-[70%]" />
+          <img src="/sponsors/ranko.png" class="w-[70%]" />
         </li>
       </ul>
     </div>
 
     <div class="h-full flex flex-col justify-center">
-      <NuxtImg src="https://data.sportlink.com/clublogo?client_id=1VZsDN7ueJ"
+      <img src="https://data.sportlink.com/clublogo?client_id=1VZsDN7ueJ"
                :alt="`Clublogo van SV de Rijp`" class="w-42 relative -top-[20%]" />
     </div>
 
