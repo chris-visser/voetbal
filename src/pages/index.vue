@@ -64,14 +64,6 @@ const days = computed(() => {
           :date="days[0].date"
           :matches="days[0].matches"
       />
-    </div>
-
-    <div class="max-w-1/3">
-      <PlayDay
-          v-if="days[1]"
-          :date="days[1].date"
-          :matches="days[1].matches"
-      />
       <section class="p-8 bg-white rounded-md flex flex-col items-center">
         <h2 class="font-bold text-2xl text-center mb-5 text-primary-400">Sponsor wedstrijdbal</h2>
         <img src="/restaurant-oudejans.webp" class="h-[150px] inline-block mb-2"
@@ -82,6 +74,14 @@ const days = computed(() => {
           high tea of tapas/diner. De serre met eigen bar en toiletgroep is ideaal voor besloten partijen.
         </p>
       </section>
+    </div>
+
+    <div class="max-w-1/3">
+      <PlayDay
+          v-if="days[1]"
+          :date="days[1].date"
+          :matches="days[1].matches"
+      />
     </div>
   </main>
 </template>
