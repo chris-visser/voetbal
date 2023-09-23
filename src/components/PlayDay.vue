@@ -27,7 +27,7 @@ const dressingRoomLabel = computed(() => {
 
 <template>
         <section class="p-8 bg-white rounded-md mb-8">
-            <h2 class="font-bold text-2xl text-center mb-8 text-primary-400">Thuisprogramma {{ formatDate(date, 'EEEE') }}</h2>
+            <h2 class="font-bold text-3xl text-center mb-8 text-primary-400">Thuisprogramma {{ formatDate(date, 'EEEE') }}</h2>
             <table>
                 <tr v-for="item in matches" :key="item.code">
                     <td class="py-2 pr-6">
@@ -38,7 +38,7 @@ const dressingRoomLabel = computed(() => {
                         {{ item.field && item.field.replace('veld ', '') }}
                     </td>
                     <td class="w-9 text-center items-center">
-                        <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`"
+                        <NuxtImg src="https://data.sportlink.com/clublogo?client_id=1VZsDN7ueJ"
                             :alt="`Clublogo van ${item.home.name}`" class="max-w-9 max-h-9" />
                     </td>
                     <td class="p-2 whitespace-nowrap pr-6 items-center">
