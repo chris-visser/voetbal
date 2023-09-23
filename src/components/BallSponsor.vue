@@ -10,7 +10,7 @@
       high tea of tapas/diner. De serre met eigen bar en toiletgroep is ideaal voor besloten partijen.
     </p>
     <h3 class="font-bold text-lg my-4">Voor meer info. Scan de QR code</h3>
-    <NuxtImg src="/restaurant-oudejans-qr.png" class="h-[250px]" />
+    <img src="/restaurant-oudejans-qr.png" class="h-[250px]" />
 
     <p class="text-sm mt-4">www.restaurantoudejans.nl</p>
   </section>
