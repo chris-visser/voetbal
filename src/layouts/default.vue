@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { id } from 'date-fns/locale';
-
 const { data, refresh } = await useFetch<{ version: string }>('/api/version')
 
 onMounted(() => {
@@ -45,7 +43,7 @@ watchEffect(() => {
 
 <template>
     <div class="overflow-hidden h-screen w-screen absolute">
-        <video autoplay muted loop ref="video" class="min-h-full aspect-video min-w-full">
+        <video autoplay muted loop ref="video" class="min-h-screen aspect-video object-cover">
             <source src="https://dq7qi3p659m75.cloudfront.net/drone-sv-de-rijp.mp4" type="video/mp4">
             <!-- Add additional source elements for different video formats (WebM, Ogg) -->
         </video>
