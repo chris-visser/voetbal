@@ -36,7 +36,7 @@ const normalizeName = (name: string): string => {
             <Icon name="fluent:conference-room-20-regular" size="22" />
           </th>
           <th class="text-center">
-            <Icon name="game-icons:soccer-field" size="26" class="-ml-1" color="#008800"/>
+              <Icon name="game-icons:soccer-field" size="30" class="mt-[2px]" color=""/>
           </th>
         </tr>
       </thead>
