@@ -17,6 +17,10 @@ const normalizeName = (name: string): string => {
   return filteredName
 }
 
+const isTheDay = computed(() => (
+    formatDate(props.date, 'EEEE') === formatDate(new Date(), 'EEEE')
+))
+
 </script>
 
 <template>
@@ -30,7 +34,8 @@ const normalizeName = (name: string): string => {
           <th class="text-left">
             <Icon name="fluent:conference-room-20-regular" size="22" class="relative -left-1" />
           </th>
-          <th>Tijd</th>
+          <th v-if="isTheDay">Tijd</th>
+          <th v-else></th>
           <th class="text-left" colspan="2">Uit</th>
           <th>
             <Icon name="fluent:conference-room-20-regular" size="22" />
@@ -56,8 +61,8 @@ const normalizeName = (name: string): string => {
           {{ item.home.room ? item.home.room : '...' }}
         </td>
 
-        <td class="py-2 px-8 text-center">
-          <Livestamp :startsAt="item.startsAt" />
+        <td class="py-2 px-8 text-center" >
+          <Livestamp :startsAt="item.startsAt" :duration="item.duration" v-if="isTheDay" />
         </td>
 
         <td class="text-center">
