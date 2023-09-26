@@ -65,6 +65,10 @@ export type GetProgramParams = {
      away?: boolean
 }
 
+const standardizeDressingRoom = (name: string | undefined): string | undefined => {
+     return name?.split(' - ')[0] || undefined
+}
+
 export const getProgram = async ({
      days = 7,
      teamCode,
@@ -101,18 +105,18 @@ export const getProgram = async ({
                teamId: item.thuisteamid,
                clubCode: item.thuisteamclubrelatiecode,
                name: item.thuisteam,
-               room: item.kleedkamerthuisteam || undefined,
+               room: standardizeDressingRoom(item.kleedkamerthuisteam),
           },
           away: {
                // Away relation code can be empty for practice matches
                teamId: item.uitteamid || undefined,
                clubCode: item.uitteamclubrelatiecode || item.thuisteamclubrelatiecode,
                name: item.uitteam,
-               room: item.kleedkameruitteam || undefined,
+               room: standardizeDressingRoom(item.kleedkameruitteam),
           },
           referee: (item.scheidsrechter ? {
                name: item.scheidsrechter,
-               room: item.kleedkamerscheidsrechter || undefined,
+               room: standardizeDressingRoom(item.kleedkamerscheidsrechter),
           } : undefined)
      }))
 

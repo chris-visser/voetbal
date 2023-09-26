@@ -46,9 +46,8 @@ const normalizeName = (name: string): string => {
           {{ formatDate(item.startsAt, 'HH:mm')}}
         </td>
         <td>
-          <NuxtImg v-if="item.away"
-                   :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`"
-                   :alt="`Clublogo van ${item.home.name}`" class="max-w-5 max-h-5 m-auto" />
+          <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`"
+                   :alt="`Clublogo van ${item.home.name}`" class="w-full max-w-5 max-h-5 m-auto object-cover" />
         </td>
         <td class="p-2 whitespace-nowrap pr-6 items-center">
           {{ normalizeName(item.home.name) }}
@@ -64,7 +63,7 @@ const normalizeName = (name: string): string => {
         <td class="text-center">
           <NuxtImg v-if="item.away"
                    :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.away.clubCode}`"
-                   :alt="`Clublogo van ${item.away.name}`" class="max-w-5 max-h-5 m-auto" />
+                   :alt="`Clublogo van ${item.away.name}`" class="max-w-[100px] max-h-[25px] m-auto object-fill" />
         </td>
 
         <td class="p-2 flex pr-6 items-center">
