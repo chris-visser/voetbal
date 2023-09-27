@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { Match } from '~/types/match'
 import { formatDate } from '~/helpers/formatDate'
-import { getDay } from 'date-fns'
-import { format } from 'date-fns-tz'
 
 const props = defineProps<{
   date: Date;
@@ -30,17 +28,17 @@ const isTheDay = computed(() => (
       <thead>
         <tr>
           <th class="text-left">Start</th>
-          <th class="text-left" colspan="2">Thuis</th>
+          <th class="text-left min-w-[170px]" colspan="2">Thuis</th>
           <th class="text-left">
             <Icon name="fluent:conference-room-20-regular" size="22" class="relative -left-1" />
           </th>
           <th v-if="isTheDay">Tijd</th>
           <th v-else></th>
-          <th class="text-left" colspan="2">Uit</th>
+          <th class="text-left min-w-[170px]" colspan="2">Uit</th>
           <th>
             <Icon name="fluent:conference-room-20-regular" size="22" />
           </th>
-          <th class="text-center">
+          <th class="pl-8">
               <Icon name="game-icons:soccer-field" size="30" class="mt-[2px]" color=""/>
           </th>
         </tr>
@@ -81,7 +79,7 @@ const isTheDay = computed(() => (
         <td v-else>
 
         </td>
-        <td class="py-2 px-6">
+        <td class="py-2 pl-9">
           {{ item.field && item.field.replace('veld ', '') }}
         </td>
 

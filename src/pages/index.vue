@@ -3,6 +3,38 @@ import { getDay } from 'date-fns'
 import { Match } from '~/types/match'
 import BallSponsor from '~/components/BallSponsor.vue'
 
+useHead({
+  title: 'Speeldag overzicht - SV de Rijp',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'Speeldag overzicht - SV de Rijp',
+    },
+    {
+      hid: 'og:title',
+      property: 'og:title',
+      content: 'Speeldag overzicht - SV de Rijp',
+    },
+    {
+      hid: 'og:description',
+      property: 'og:description',
+      content: 'Programma en kleedkameroverzicht SV de Rijp',
+    },
+    {
+      hid: 'og:image',
+      property: 'og:image',
+      content: `https://logoapi.voetbal.nl/logo.php?clubcode=BBFW72Z`,
+    },
+    {
+      hid: 'og:url',
+      property: 'og:url',
+      content: 'https://voetbal-app.netlify.app',
+    }
+  ],
+})
+
+
 const { data: program, refresh } = await useFetch<{ matches: Match[] }>('/api/program', {
   query: {
     days: 6,
@@ -56,13 +88,6 @@ const days = computed(() => {
   }, [])
 })
 
-// const sponsorLeft = computed(() => {
-//   if(!days.value[1]?.matches?.length) {
-//     return false
-//   }
-//   return days.value[0]?.matches.length < days.value[1]?.matches.length
-// })
-
 const sponsorLogos = computed(() => {
   const items = [{
     src: '/sponsors/ranko.png',
@@ -98,22 +123,16 @@ const sponsorLogos = computed(() => {
           :date="days[0].date"
           :matches="days[0].matches"
       />
-<!--      <PlayDay-->
-<!--          v-else-->
-<!--          :date="days[0].date"-->
-<!--          :matches="days[0].matches"-->
-<!--      />-->
-      <!--      <BallSponsor v-if="sponsorLeft" />-->
 
       <ul class="flex flex-1 content-center items-end gap-8 justify-between self-end w-full">
-        <li class="bg-white rounded-lg h-[120px] py-8 flex-1 max-w-[300px] flex items-center justify-center">
+        <li class="bg-white rounded-lg h-[120px] py-8 flex-1 max-w-[280px] flex items-center justify-center">
           <img :src="sponsorLogos[0].src" :alt="sponsorLogos[0].alt" class="object-fill p-8"/>
         </li>
         <li class="text-4xl text-shadow h-[120px] text-white font-bold flex justify-center items-center flex-col">
           <Icon name="ic:baseline-access-time" size="60"/>
           <Clock/>
         </li>
-        <li class="bg-white rounded-lg h-[120px] py-8 flex-1 max-w-[300px] flex items-center justify-center">
+        <li class="bg-white rounded-lg h-[120px] py-8 flex-1 max-w-[280px] flex items-center justify-center">
           <img :src="sponsorLogos[1].src" :alt="sponsorLogos[1].alt" class="object-fill p-8"/>
         </li>
       </ul>
@@ -125,11 +144,6 @@ const sponsorLogos = computed(() => {
     </div>
 
     <div class="max-w-1/3 h-full">
-      <!--      <PlayDay-->
-      <!--          v-if="days[1]"-->
-      <!--          :date="days[1].date"-->
-      <!--          :matches="days[1].matches"-->
-      <!--      />-->
       <BallSponsor class="h-full"/>
     </div>
   </main>
