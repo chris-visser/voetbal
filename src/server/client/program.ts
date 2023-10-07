@@ -2,6 +2,7 @@
 import { utcToZonedTime, format } from 'date-fns-tz'
 import { Match, EventType, Duration } from '~/types/match'
 import { splFetch } from './fetch'
+import { ageCategoryMatchDurations } from '~/server/data/ageCategoryDurations'
 
 // SV de Rijp
 const clubCode = 'BBFW72Z'
@@ -54,45 +55,13 @@ const matchTypeMap: Record<string, EventType> = {
 }
 
 
-type AgeCategoryTimes = {
-     category: string;
-} & Duration
-
-const ageCategoriesTimes: AgeCategoryTimes[] = [
-     { category: 'JO6', minutesTotal: 40, minutesRest: 0 },
-     { category: 'JO7', minutesTotal: 40, minutesRest: 0 },
-     { category: 'JO8', minutesTotal: 40, minutesRest: 10 },
-     { category: 'MO8', minutesTotal: 40, minutesRest: 10 },
-     { category: 'JO9', minutesTotal: 40, minutesRest: 10 },
-     { category: 'MO9', minutesTotal: 40, minutesRest: 10 },
-     { category: 'JO10', minutesTotal: 60, minutesRest: 10 },
-     { category: 'MO10', minutesTotal: 60, minutesRest: 10 },
-     { category: 'JO11', minutesTotal: 70, minutesRest: 10 },
-     { category: 'MO11', minutesTotal: 70, minutesRest: 10 },
-     { category: 'JO12', minutesTotal: 70, minutesRest: 10 },
-     { category: 'MO12', minutesTotal: 70, minutesRest: 10 },
-     { category: 'JO13', minutesTotal: 75, minutesRest: 15 },
-     { category: 'MO13', minutesTotal: 75, minutesRest: 15 },
-     { category: 'JO14', minutesTotal: 85, minutesRest: 15 },
-     { category: 'MO14', minutesTotal: 85, minutesRest: 15 },
-     { category: 'JO15', minutesTotal: 85, minutesRest: 15 },
-     { category: 'MO15', minutesTotal: 85, minutesRest: 15 },
-     { category: 'JO16', minutesTotal: 95, minutesRest: 15 },
-     { category: 'MO16', minutesTotal: 95, minutesRest: 15 },
-     { category: 'JO17', minutesTotal: 95, minutesRest: 15 },
-     { category: 'MO17', minutesTotal: 95, minutesRest: 15 },
-     { category: 'JO18', minutesTotal: 105, minutesRest: 15 },
-     { category: 'MO18', minutesTotal: 105, minutesRest: 15 },
-     { category: 'JO19', minutesTotal: 105, minutesRest: 15 },
-     { category: 'MO19', minutesTotal: 105, minutesRest: 15 }
-];
 
 const getDuration = (teamNameWithClubName: string): Duration => {
      const teamName = teamNameWithClubName
          .replace(`${clubName} `, '')
      const category = teamName.split('-')[0] || teamName
 
-     const duration = ageCategoriesTimes.find(item => item.category === category)
+     const duration = ageCategoryMatchDurations.find(item => item.category === category)
 
      if(!duration) {
           return {

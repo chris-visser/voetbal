@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { getDay } from 'date-fns'
-import { Match } from '~/types/match'
-import BallSponsor from '~/components/BallSponsor.vue'
-
 useHead({
   title: 'Speeldag overzicht - SV de Rijp',
   meta: [
@@ -35,12 +31,8 @@ useHead({
 })
 
 
-const { data: program, refresh } = await useFetch<{ matches: Match[] }>('/api/program', {
-  query: {
-    days: 6,
-    away: false
-  }
-})
+
+const { days, refresh } = await useSchedule()
 
 onMounted(() => {
   setInterval(() => {
@@ -48,44 +40,8 @@ onMounted(() => {
   }, 1000 * 60 * 10) // 10 minutes
 })
 
-type MatchDay = {
-  matches: Match[];
-  day: number;
-  date: Date;
-}
-
-const days = computed(() => {
-  if (!program.value?.matches) {
-    return []
-  }
-
-  return program.value?.matches?.reduce<MatchDay[]>((list, match) => {
-    const date = new Date(match.startsAt)
-    const day = getDay(date)
-
-    const dayIndex = list.findIndex((item) => item.day === day)
-
-    if (dayIndex === -1) {
-      return [
-        ...list,
-        {
-          day,
-          date,
-          matches: [{
-            ...match,
-            startsAt: date
-          }]
-        }
-      ]
-    }
-
-    list[dayIndex].matches.push({
-      ...match,
-      startsAt: date
-    })
-
-    return list
-  }, [])
+const day = computed(() => {
+  return days.value[0]
 })
 
 const sponsorLogos = computed(() => {
@@ -120,8 +76,8 @@ const sponsorLogos = computed(() => {
       class="relative flex flex-wrap justify-between items-start w-full p-8 h-screen max-w-screen overflow-hidden">
     <div class="h-full flex flex-col justify-between">
       <PlayDayCompact
-          :date="days[0].date"
-          :matches="days[0].matches"
+          :date="day.date"
+          :matches="day.matches"
       />
 
       <ul class="flex flex-1 content-center items-end gap-8 justify-between self-end w-full">

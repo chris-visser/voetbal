@@ -24,7 +24,7 @@ const isTheDay = computed(() => (
 <template>
   <section class="p-8 bg-white rounded-md mb-8">
     <h2 class="font-bold text-3xl text-center mb-8 text-primary-400">Thuisprogramma {{ formatDate(date, 'EEEE') }}</h2>
-    <table>
+    <table class="">
       <thead>
         <tr>
           <th class="text-left">Start</th>
@@ -50,7 +50,7 @@ const isTheDay = computed(() => (
         </td>
         <td>
           <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`"
-                   :alt="`Clublogo van ${item.home.name}`" class="w-full max-w-5 max-h-5 m-auto object-cover" />
+                   class="max-w-[100px] text-xs max-h-[25px] m-auto object-fill" />
         </td>
         <td class="p-2 whitespace-nowrap pr-6 items-center">
           {{ normalizeName(item.home.name) }}
@@ -63,10 +63,10 @@ const isTheDay = computed(() => (
           <Livestamp :startsAt="item.startsAt" :duration="item.duration" v-if="isTheDay" />
         </td>
 
-        <td class="text-center">
+        <td class="">
           <NuxtImg v-if="item.away"
                    :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.away.clubCode}`"
-                   :alt="`Clublogo van ${item.away.name}`" class="max-w-[100px] max-h-[25px] m-auto object-fill" />
+                    class="max-w-[100px] text-xs max-h-[25px] m-auto object-fill" />
         </td>
 
         <td class="p-2 flex pr-6 items-center">
@@ -79,7 +79,7 @@ const isTheDay = computed(() => (
         <td v-else>
 
         </td>
-        <td class="py-2 pl-9">
+        <td class="py-2 pl-8">
           {{ item.field && item.field.replace('veld ', '') }}
         </td>
 
