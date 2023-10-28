@@ -20,7 +20,7 @@ export type Match = {
     startsAt: Date;
     field?: string;
     duration: Duration;
-    accomodation?: string;
+    accommodation?: string;
     location?: string;
     isHome?: boolean;
     home: MatchTeam;

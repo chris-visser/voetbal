@@ -31,23 +31,16 @@
 
     <h2 class="font-bold text-3xl text-center mb-5 text-primary-400">Sponsor wedstrijdbal</h2>
     <img src="/balsponsor.jpeg" class="h-[200px] inline-block mb-4"
-         alt="Sponsor wedstrijdbal - Schildersbedrijf de Tapperij"/>
+         alt="Sponsor wedstrijdbal"/>
 
-    <h3 class="text-2xl font-bold my-8">Schildersbedrijf de Tapperij</h3>
+    <h3 class="text-2xl font-bold my-8">F-Side (supportersgroep)</h3>
 
     <p class="max-w-[400px] my-8 text-justify">
-      Schildersbedrijf de Tapperij kan je goed van dienst zijn bij alle schilderklussen in en om het huis.
-      Neem bij vragen of voor een vrijblijvende offerte contact op met Erik Roele
+      Zondag 29 oktober om 14.30 uur speelt ons vlaggenschip thuis tegen ALC. De wedstrijdbal voor dit 
+      duel wordt geschonken door de trouwe supporters van de F-Side.
     </p>
 
-    <dl class="grid grid-cols-2 text-lg">
-      <dt class="font-semibold">E-mailadres</dt>
-      <dd>verftapperij@xs4all.nl</dd>
-      <dt class="font-semibold">Contactpersoon</dt>
-      <dd>Dhr. E. Roele</dd>
-      <dt class="font-semibold">Telefoon</dt>
-      <dd>06-50501325</dd>
-    </dl>
+
 
 
 
