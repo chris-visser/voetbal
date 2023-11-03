@@ -29,7 +29,7 @@
 <!--      <dd>06-50501325</dd>-->
 <!--    </dl>-->
 
-    <h2 class="font-bold text-3xl text-center mb-5 text-primary-400">Sponsor wedstrijdbal</h2>
+    <!--<h2 class="font-bold text-3xl text-center mb-5 text-primary-400">Sponsor wedstrijdbal</h2>
     <img src="/balsponsor.jpeg" class="h-[200px] inline-block mb-4"
          alt="Sponsor wedstrijdbal"/>
 
@@ -39,9 +39,19 @@
       Zondag 29 oktober om 14.30 uur speelt ons vlaggenschip thuis tegen ALC. De wedstrijdbal voor dit 
       duel wordt geschonken door de trouwe supporters van de F-Side.
     </p>
+  -->
+  <h2 class="font-bold text-3xl text-center mb-5 text-primary-400">Algemene ledenvergadering</h2>
+
+  <p class="max-w-[400px] my-8 text-justify">
+    Hierbij nodigt het bestuur alle leden en ouders van jeugdleden uit voor het bijwonen van de 
+    Jaarlijkse Algemene Ledenvergadering op donderdag 30 november 2023.
+  </p>
 
 
-
+  <p class="font-bold max-w-[400px] my-8 text-center">
+    Aanvang: 20:00 uur<br />
+    Locatie: kantine SV De Rijp
+  </p>
 
 
 <!--    <p class="text-center max-w-[400px]">-->
