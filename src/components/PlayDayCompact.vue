@@ -21,8 +21,22 @@ const isTheDay = computed(() => (
 
 const matches = computed(() => {
   return props.matches.filter(match => {
-    console.log(match.away?.name)
     return match.isHome || match.away?.name === 'Rijp (de) JO9-1'
+  }).map(match => {
+    if(match.away?.name === 'Rijp (de) JO9-1') {
+      return {
+        ...match,
+        away: {
+          ...match.away,
+          room: '3R'
+        },
+        home: {
+          ...match.home,
+          room: '5R'
+        }
+      }
+    }
+    return match
   })
 })
 
