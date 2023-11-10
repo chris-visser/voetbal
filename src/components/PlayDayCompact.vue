@@ -19,6 +19,13 @@ const isTheDay = computed(() => (
     formatDate(props.date, 'EEEE') === formatDate(new Date(), 'EEEE')
 ))
 
+const matches = computed(() => {
+  return props.matches.filter(match => {
+    console.log(match.away?.name)
+    return match.isHome || match.away?.name === 'Rijp (de) JO9-1'
+  })
+})
+
 </script>
 
 <template>

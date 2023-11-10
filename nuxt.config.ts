@@ -7,6 +7,11 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'nuxt-icon'
   ],
+  runtimeConfig: {
+    public: {
+      hello: 'foo'
+    }
+  },
   image: {
     domains: ['nuxtjs.org']
   },

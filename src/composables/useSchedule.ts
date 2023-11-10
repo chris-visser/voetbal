@@ -11,7 +11,7 @@ export const useSchedule = async () => {
     const { data: program, refresh } = await useFetch<{ matches: Match[] }>('/api/program', {
         query: {
             days: 6,
-            away: false
+            away: true
         }
     })
 
