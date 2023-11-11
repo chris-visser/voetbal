@@ -26,7 +26,7 @@ const matches = computed(() => {
     if(match.away?.name === 'Rijp (de) JO9-1') {
       return {
         ...match,
-        startsAt: '2023-11-11T09:30:00.000Z',
+        startsAt: new Date('2023-11-11T09:30:00.000Z'),
         away: {
           ...match.away,
           room: '3R'
