@@ -19,26 +19,26 @@ const isTheDay = computed(() => (
     formatDate(props.date, 'EEEE') === formatDate(new Date(), 'EEEE')
 ))
 
-const matches = computed(() => {
-  return props.matches.filter(match => {
-    return match.isHome || match.away?.name === 'Rijp (de) JO9-1'
-  }).map(match => {
-    if(match.away?.name === 'Rijp (de) JO9-1') {
-      return {
-        ...match,
-        away: {
-          ...match.away,
-          room: '3R'
-        },
-        home: {
-          ...match.home,
-          room: '5R'
-        }
-      }
-    }
-    return match
-  })
-})
+// const matches = computed(() => {
+//   return props.matches.filter(match => {
+//     return match.isHome || match.away?.name === 'Rijp (de) JO9-1'
+//   }).map(match => {
+//     if(match.away?.name === 'Rijp (de) JO9-1') {
+//       return {
+//         ...match,
+//         away: {
+//           ...match.away,
+//           room: '3R'
+//         },
+//         home: {
+//           ...match.home,
+//           room: '5R'
+//         }
+//       }
+//     }
+//     return match
+//   })
+// })
 
 </script>
 
@@ -65,23 +65,26 @@ const matches = computed(() => {
         </tr>
       </thead>
       <tbody>
-      <tr v-for="item in matches" :key="item.code">
-        <td class="py-2 pr-8">
+      <tr v-for="item in matches" :key="item.code" :class="{ 'font-light': item.status === 'cancelled' }">
+        <td class="py-2 pr-8" v-if="item.status !== 'cancelled'">
           {{ formatDate(item.startsAt, 'HH:mm')}}
+        </td>
+        <td class="py-2 pr-8" v-else>
+          Afgelast
         </td>
         <td>
           <NuxtImg :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`"
                    class="max-w-[100px] text-xs max-h-[25px] m-auto object-fill" />
         </td>
-        <td class="p-2 whitespace-nowrap pr-6 items-center">
+        <td class="p-2 whitespace-nowrap pr-6 items-center" :class="{ 'line-through': item.status === 'cancelled' }">
           {{ normalizeName(item.home.name) }}
         </td>
         <td class="py-2 whitespace-nowrap">
-          {{ item.home.room ? item.home.room : '...' }}
+          {{ item.home.room && item.status !== 'cancelled' ? item.home.room : '...' }}
         </td>
 
         <td class="py-2 px-8 text-center" >
-          <Livestamp :startsAt="item.startsAt" :duration="item.duration" v-if="isTheDay" />
+          <Livestamp :startsAt="item.startsAt" :duration="item.duration" v-if="isTheDay && item.status !== 'cancelled'" />
         </td>
 
         <td class="">
@@ -90,17 +93,17 @@ const matches = computed(() => {
                     class="max-w-[100px] text-xs max-h-[25px] m-auto object-fill" />
         </td>
 
-        <td class="p-2 flex pr-6 items-center">
+        <td class="p-2 flex pr-6 items-center" :class="{ 'line-through': item.status === 'cancelled' }">
           {{ item.away.name }}
         </td>
 
         <td class="p-2 whitespace-nowrap items-center" v-if="item.away">
-            {{ item.away.room ? item.away.room : '...' }}
+            {{ item.away.room && item.status !== 'cancelled' ? item.away.room : '...' }}
         </td>
         <td v-else>
 
         </td>
-        <td class="py-2 pl-8">
+        <td class="py-2 pl-8" :class="{ 'line-through': item.status === 'cancelled' }">
           {{ item.field && item.field.replace('veld ', '') }}
         </td>
 

@@ -1,12 +1,19 @@
 // import { eachDayOfInterval, isTuesday, isThursday, setHours } from 'date-fns'
 import { utcToZonedTime, format } from 'date-fns-tz'
-import { Match, EventType, Duration } from '~/types/match'
+import { Match, EventType, Duration, MatchStatus } from '~/types/match'
 import { splFetch } from './fetch'
 import { ageCategoryMatchDurations } from '~/server/data/ageCategoryDurations'
 
 // SV de Rijp
 const clubCode = 'BBFW72Z'
 const clubName = 'Rijp (de)'
+
+const matchStatusMap = {
+     'Te spelen': 'planned',
+     'Afgelast': 'cancelled'
+} satisfies Record<string, MatchStatus>
+
+type RawMatchStatus = keyof typeof matchStatusMap
 
 export type RawMatch = {
      wedstrijddatum: string;
@@ -31,7 +38,7 @@ export type RawMatch = {
      verzameltijd: string;
      aanvangstijd: string;
      wedstrijd: string;
-     status: string;
+     status: RawMatchStatus;
      scheidsrechters: string;
      scheidsrechter: string;
      accommodatie: string;
@@ -89,6 +96,10 @@ const standardizeDressingRoom = (name: string | undefined): string | undefined =
      return name?.split(' - ')[0] || undefined
 }
 
+const transformStatus = (status: RawMatchStatus): MatchStatus => (
+    matchStatusMap[status] || 'planned'
+)
+
 export const getProgram = async ({
      days = 7,
      teamCode,
@@ -119,6 +130,7 @@ export const getProgram = async ({
           field: item.veld,
           accomodation: item.accommodatie,
           location: item.plaats,
+          status: transformStatus(item.status),
           isNextMatch: false,
           duration: getDuration(item.thuisteam),
           isHome: item.thuisteamclubrelatiecode === clubCode,

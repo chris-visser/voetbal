@@ -15,6 +15,8 @@ export type Duration = {
     minutesRest: number
 }
 
+export type MatchStatus = 'planned' | 'cancelled'
+
 export type Match = {
     code?: number;
     startsAt: Date;
@@ -25,6 +27,7 @@ export type Match = {
     isHome?: boolean;
     home: MatchTeam;
     away?: MatchTeam;
+    status: MatchStatus;
     participants?: MatchTeam[];
     referee?: MatchParticipant;
     type: EventType;
