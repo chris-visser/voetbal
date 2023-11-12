@@ -61,7 +61,7 @@ const matches = computed(() => {
           {{ formatDate(item.startsAt, 'HH:mm')}}
         </td>
         <td class="py-2 pr-8" v-else-if="item.home.name === 'Rijp (de) VR2'">
-          Omgeruild
+          Speelt uit
         </td>
         <td class="py-2 pr-8" v-else>
           Afgelast
