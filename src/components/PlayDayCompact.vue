@@ -19,26 +19,17 @@ const isTheDay = computed(() => (
     formatDate(props.date, 'EEEE') === formatDate(new Date(), 'EEEE')
 ))
 
-// const matches = computed(() => {
-//   return props.matches.filter(match => {
-//     return match.isHome || match.away?.name === 'Rijp (de) JO9-1'
-//   }).map(match => {
-//     if(match.away?.name === 'Rijp (de) JO9-1') {
-//       return {
-//         ...match,
-//         away: {
-//           ...match.away,
-//           room: '3R'
-//         },
-//         home: {
-//           ...match.home,
-//           room: '5R'
-//         }
-//       }
-//     }
-//     return match
-//   })
-// })
+const matches = computed(() => {
+  return props.matches.map(match => {
+    if(match.home?.name === 'Rijp (de) VR2') {
+      return {
+        ...match,
+        status: 'cancelled',
+      }
+    }
+    return match
+  })
+})
 
 </script>
 
@@ -68,6 +59,9 @@ const isTheDay = computed(() => (
       <tr v-for="item in matches" :key="item.code" :class="{ 'font-light': item.status === 'cancelled' }">
         <td class="py-2 pr-8" v-if="item.status !== 'cancelled'">
           {{ formatDate(item.startsAt, 'HH:mm')}}
+        </td>
+        <td class="py-2 pr-8" v-else-if="item.home.name === 'Rijp (de) VR2'">
+          Omgeruild
         </td>
         <td class="py-2 pr-8" v-else>
           Afgelast
