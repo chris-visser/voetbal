@@ -14,16 +14,16 @@
     <!--      waterzakken en bidons.-->
     <!--    </p>-->
 
-    <h2 class="font-bold text-3xl text-center mb-5 text-primary-400">Sponsor wedstrijdbal</h2>
-    <img src="/balsponsor.jpeg" class="h-[200px] inline-block mb-2"
-         alt="Sponsor wedstrijdbal"/>
+<!--    <h2 class="font-bold text-3xl text-center mb-5 text-primary-400">Sponsor wedstrijdbal</h2>-->
+<!--    <img src="/balsponsor.jpeg" class="h-[200px] inline-block mb-2"-->
+<!--         alt="Sponsor wedstrijdbal"/>-->
 
-    <h3 class="text-2xl font-bold mt-2 mb-2 text-center">Skybox<br />(vriendengroep Tuur Boerkool)</h3>
+<!--    <h3 class="text-2xl font-bold mt-2 mb-2 text-center">Skybox<br />(vriendengroep Tuur Boerkool)</h3>-->
 
-    <p class="max-w-[400px] my-2 text-justify">
-      Zondag 12 november speelt het eerste elftal om 14:30 uur thuis tegen Hauwert. De wedstrijdbal
-      wordt dit duel gesponsord door de vriendengroep van Tuur Boerkool, genoemd ‘Skybox’.
-    </p>
+<!--    <p class="max-w-[400px] my-2 text-justify">-->
+<!--      Zondag 12 november speelt het eerste elftal om 14:30 uur thuis tegen Hauwert. De wedstrijdbal-->
+<!--      wordt dit duel gesponsord door de vriendengroep van Tuur Boerkool, genoemd ‘Skybox’.-->
+<!--    </p>-->
 
 
     <h2 class="font-bold text-3xl text-center mb-4 mt-4 text-primary-400">Algemene ledenvergadering</h2>
