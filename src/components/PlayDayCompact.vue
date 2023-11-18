@@ -19,18 +19,6 @@ const isTheDay = computed(() => (
     formatDate(props.date, 'EEEE') === formatDate(new Date(), 'EEEE')
 ))
 
-const matches = computed(() => {
-  return props.matches.map(match => {
-    if(match.home?.name === 'Rijp (de) VR2') {
-      return {
-        ...match,
-        status: 'cancelled',
-      }
-    }
-    return match
-  })
-})
-
 </script>
 
 <template>
