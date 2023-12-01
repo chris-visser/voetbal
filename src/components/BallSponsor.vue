@@ -14,29 +14,33 @@
     <!--      waterzakken en bidons.-->
     <!--    </p>-->
 
-<!--    <h2 class="font-bold text-3xl text-center mb-5 text-primary-400">Sponsor wedstrijdbal</h2>-->
-<!--    <img src="/balsponsor.jpeg" class="h-[200px] inline-block mb-2"-->
-<!--         alt="Sponsor wedstrijdbal"/>-->
+    <!--    <h2 class="font-bold text-3xl text-center mb-5 text-primary-400">Sponsor wedstrijdbal</h2>-->
+    <!--    <img src="/balsponsor.jpeg" class="h-[200px] inline-block mb-2"-->
+    <!--         alt="Sponsor wedstrijdbal"/>-->
 
-<!--    <h3 class="text-2xl font-bold mt-2 mb-2 text-center">Skybox<br />(vriendengroep Tuur Boerkool)</h3>-->
+    <!--    <h3 class="text-2xl font-bold mt-2 mb-2 text-center">Skybox<br />(vriendengroep Tuur Boerkool)</h3>-->
 
-<!--    <p class="max-w-[400px] my-2 text-justify">-->
-<!--      Zondag 12 november speelt het eerste elftal om 14:30 uur thuis tegen Hauwert. De wedstrijdbal-->
-<!--      wordt dit duel gesponsord door de vriendengroep van Tuur Boerkool, genoemd ‘Skybox’.-->
-<!--    </p>-->
+    <!--    <p class="max-w-[400px] my-2 text-justify">-->
+    <!--      Zondag 12 november speelt het eerste elftal om 14:30 uur thuis tegen Hauwert. De wedstrijdbal-->
+    <!--      wordt dit duel gesponsord door de vriendengroep van Tuur Boerkool, genoemd ‘Skybox’.-->
+    <!--    </p>-->
 
 
-    <h2 class="font-bold text-3xl text-center mb-4 mt-4 text-primary-400">Algemene ledenvergadering</h2>
+    <h2 class="font-bold text-3xl text-center mb-8 mt-4 text-primary-400">
+      Nieuw dagelijks bestuur
+    </h2>
 
-    <p class="max-w-[400px] mb-2 bt-4 text-justify">
-      Hierbij nodigt het bestuur alle leden en ouders van jeugdleden uit voor het bijwonen van de
-      Jaarlijkse Algemene Ledenvergadering op donderdag 30 november 2023.
+    <img src="/afscheid-frank-oudejans.jpg" class="h-[250px] inline-block mb-6" alt="Afscheid Frank Oudejans" />
+
+    <p class="max-w-[400px] mb-6 bt-8\4 text-justify">
+      Tijdens de Jaarlijkse Algemene Ledenvergadering (JALV) op 30 november is een vrijwel nieuw Dagelijks Bestuur gekozen.
+      Voorzitter Erik Oudshoorn was aftredend en herkiesbaar voor nog een jaar. Penningmeester Frank Oudejans was niet
+      herkiesbaar. Het erelid is na 23 jaar de financiën te hebben beheerd opgevolgd door Pascal Oudejans.
     </p>
 
-
-    <p class="font-bold max-w-[400px] my-2 text-center">
-      Aanvang: 20:00 uur<br/>
-      Locatie: kantine SV De Rijp
+    <p class="max-w-[400px] mb-2 bt-4 text-justify">
+      Naast Pascal Oudejans is Nick Blokdijk als secretaris toegetreden tot het Dagelijks Bestuur. Martin Effting heeft in
+      het hoogste college zitting genomen als lid technische zaken. Patrick Stekelbos blijft aan als algemeen lid.
     </p>
 
 
