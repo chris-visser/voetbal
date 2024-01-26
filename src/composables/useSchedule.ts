@@ -10,7 +10,7 @@ type MatchDay = {
 export const useSchedule = async () => {
     const { data: program, refresh } = await useFetch<{ matches: Match[] }>('/api/program', {
         query: {
-            days: 6,
+            days: 5,
             away: false
         }
     })

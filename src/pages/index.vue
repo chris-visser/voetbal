@@ -67,8 +67,6 @@ const sponsorLogos = computed(() => {
 
   return dayItems.length > 0 ? dayItems : [items[0], items[1]]
 })
-
-
 </script>
 
 <template>

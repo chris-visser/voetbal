@@ -27,20 +27,24 @@
 
 
     <h2 class="font-bold text-3xl text-center mb-8 mt-4 text-primary-400">
-      Nieuw dagelijks bestuur
+      Ter nagedachtenis: <br />Oud-trainer Junior Pourier
     </h2>
 
-    <img src="/afscheid-frank-oudejans.jpg" class="h-[250px] inline-block mb-6" alt="Afscheid Frank Oudejans" />
+    <img src="/junior.jpg" class="h-[250px] inline-block mb-6" alt="Junior Pourier" />
 
-    <p class="max-w-[400px] mb-6 bt-8\4 text-justify">
-      Tijdens de Jaarlijkse Algemene Ledenvergadering (JALV) op 30 november is een vrijwel nieuw Dagelijks Bestuur gekozen.
-      Voorzitter Erik Oudshoorn was aftredend en herkiesbaar voor nog een jaar. Penningmeester Frank Oudejans was niet
-      herkiesbaar. Het erelid is na 23 jaar de financiën te hebben beheerd opgevolgd door Pascal Oudejans.
+    <p class="max-w-[400px] mb-4 bt-8\4 text-justify">
+      Geschokt heeft SV De Rijp kennisgenomen van het plotseling overlijden van Junior Pourier.
+      Afgelopen woensdag is hij op 57-jarige leeftijd overleden na een kort ziekbed.
     </p>
 
-    <p class="max-w-[400px] mb-2 bt-4 text-justify">
-      Naast Pascal Oudejans is Nick Blokdijk als secretaris toegetreden tot het Dagelijks Bestuur. Martin Effting heeft in
-      het hoogste college zitting genomen als lid technische zaken. Patrick Stekelbos blijft aan als algemeen lid.
+    <p class="max-w-[400px] mb-4 bt-4 text-justify">
+      Junior is jeugdtrainer geweest bij SV De Rijp en heeft verschillende jongens van de huidige
+      selectie onder zijn hoede gehad. Daarnaast heeft hij zich ook ingezet voor het trainen van de dames en de (oude)
+      zaterdag 2.
+    </p>
+    <p class="max-w-[400px] bt-4 text-justify">
+      Ter nagedachtenis zal er voor aanvang van de wedstrijd van ons eerste elftal tegen Kwiek ’78 om 14.30 uur een minuut
+      stilte worden gehouden.
     </p>
 
 
