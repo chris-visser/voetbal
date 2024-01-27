@@ -4,6 +4,7 @@ const ipMap: Record<string, string> = {
     '::ffff:127.0.0.1': 'Thuis (development)',
     // '3.82.96.116': 'SV de Rijp',
     '2a02:a463:68b:1:eccd:8943:3209:f924': 'SV de Rijp',
+    '2a02:a463:68b:1:fbb1:f253:692e:f261': 'SV de Rijp',
     '83.84.2.172': 'Thuis'
 }
 
