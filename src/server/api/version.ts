@@ -8,7 +8,7 @@ const ipMap: Record<string, string> = {
     '83.84.2.172': 'Thuis'
 }
 
-const VERSION = 'v0.4.7'
+const VERSION = 'v0.4.8'
 
 export default defineEventHandler(async (event) => {
     const forwardedFor = getHeader(event, 'x-forwarded-for')
