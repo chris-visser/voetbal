@@ -76,7 +76,7 @@ const isTheDay = computed(() => (
         </td>
 
         <td class="p-2 flex pr-6 items-center" :class="{ 'line-through': item.status === 'cancelled' }">
-          {{ item.away.name }}
+          {{ item.away?.name }}
         </td>
 
         <td class="p-2 whitespace-nowrap items-center" v-if="item.away">
