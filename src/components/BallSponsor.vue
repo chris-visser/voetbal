@@ -1,39 +1,45 @@
 <template>
-  <section class="p-8 bg-white rounded-md flex flex-col items-center">
-
-    <h2 class="font-bold text-3xl text-center mb-8 mt-4 text-primary-400">
-      Wij zoeken vrijwilligers<br />voor het jeugdbestuur
+  <section class="p-8 bg-white rounded-md items-center">
+    <h2 class="font-bold text-3xl mb-8 mt-4 text-primary-400">
+      Gezocht: Versterking van het Technisch Hart!
     </h2>
 
-    <img src="/jeugd.jpg" class="max-w-[400px] mb-8" />
-
     <p class="max-w-[400px] mb-4 bt-8\4 text-justify">
-      Voor het jeugdbestuur van SV De Rijp zijn we op zoek naar vrijwilligers! In de afgelopen jaren is een 
-      te kort aan ondersteuning ontstaan. Het jeugdbestuur bij SV De Rijp faciliteert een goed verloop van voetbal 
-      op zaterdag, werving van jeugdleden, zorgt dat niemand buitenspel staat en organiseert leuke activiteiten 
-      gedurende het voetbalseizoen. Om de bezetting goed te houden, zoeken wij duurzame versterking voor meerdere jaren.
+      Als Technisch Hart van SV De Rijp willen we de taken meer gaan verdelen “bredere schouders” creëren. Daarom zijn we op zoek naar hulp voor de volgende 2 functies:
     </p>
 
-    <h3 class="max-w-[400px] mb-4 font-bold">Enthousiast?</h3>
+    <h3 class="max-w-[400px] mb-4 font-bold w-full">
+      Coördinator Fundament/Onderbouw (JO8-JO12)
+    </h3>
 
-    <p class="max-w-[400px] mb-4 bt-4 text-justify">
-      Meld je dan aan voor een van de beschikbare gebieden! Neem contact op met Tom Smits (voorzitter Jeugdbestuur) via 
-      t.smits01@outlook.com of 0681792270 of met Nick Blokdijk (secretaris Dagelijks Bestuur) via secretaris@svderijp.nl
-      of 0634299526.
+    <ul class="max-w-[400px] mb-4 bt-4 pl-4 list-disc">
+      <li>Aanspreekpunt voor trainers en leiders Fundament/Onderbouw (JO8-JO12; 9 teams)</li>
+      <li>Brugfunctie naar TH; vergaderingen TH (6x per jaar) bijwonen en deelname aan de groepsapp van TH</li>
+    </ul>
+
+    <h3 class="max-w-[400px] mb-4 font-bold w-full">
+      Coördinator Midden-/Bovenbouw (JO13-JO23)
+    </h3>
+
+    <ul class="max-w-[400px] mb-4 bt-4 pl-4 list-disc">
+      <li>Aanspreekpunt voor trainers en leiders Midden-/Bovenbouw (JO13-JO23; 6 teams)</li>
+      <li>Brugfunctie naar TH; vergaderingen (6x per jaar) bijwonen en deelname aan de groepsapp van TH</li>
+    </ul>
+
+    <p class="max-w-[400px] mb-4 bt-4">
+      <strong>Wat doe je WEL:</strong> vraagbaak voor trainingen en wedstrijden, oefenstof, evaluatie trainers samen met Hoofd jeugdopleiding, advies aan Hoofd jeugdopleiding over team-indelingen.
     </p>
-
-
-    <!--    <p class="text-center max-w-[400px]">-->
-    <!--      De wedstrijdbal van het 1e elftal wordt gesponsord door-->
-    <!--      <strong>Restaurant Oudejans</strong> - de perfecte plek voor een goede-->
-    <!--      lunch,-->
-    <!--      high tea of tapas/diner. De serre met eigen bar en toiletgroep is ideaal voor besloten partijen.-->
-    <!--    </p>-->
-    <!--    <h3 class="font-bold text-lg my-4">Voor meer info. Scan de QR code</h3>-->
-    <!--    <img src="/restaurant-oudejans-qr.png" class="h-[250px]" />-->
-
-    <!--    <p class="text-sm mt-4">www.restaurantoudejans.nl</p>-->
+    <p class="max-w-[400px] mb-4 bt-4">
+      <strong>Wat doe je NIET:</strong> direct contact met alle ouders van de betreffende bouw (dit loopt altijd via de trainer), tekort aan spelers op wedstrijddag (dat doen trainers zelf), kledingzaken, scheidsrechters, kantinediensten etc.
+    </p>
+    <h3 class="max-w-[400px] font-bold w-full">
+      Ben je enthousiast of wil je meer weten?
+    </h3>
+    <p class="max-w-[400px] mb-4 bt-4">
+      Meld je aan bij Patrick Oudejans (<span class="text-red-600">oudejansp@gmail.com</span>).
+    </p>
   </section>
 </template>
+
 <script setup lang="ts">
 </script>

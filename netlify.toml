@@ -1,4 +1,4 @@
 [build]
     base = "/"
-    command = "pnpm run build"
+    command = "bun run build"
     publish = "dist"

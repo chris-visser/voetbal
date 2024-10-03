@@ -1,0 +1,9 @@
+{
+    "eslint.useFlatConfig": true,
+    "eslint.format.enable": true,
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+}

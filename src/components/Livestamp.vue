@@ -1,12 +1,12 @@
 <script setup lang="ts">
 // import { addSeconds } from 'date-fns'
-import { Duration } from '~/types/match'
+import { differenceInSeconds } from 'date-fns'
+import type { Duration } from '~/types/match'
 
 const { startsAt, duration } = defineProps<{
   duration: Duration
   startsAt: Date
 }>()
-import { differenceInSeconds } from 'date-fns'
 
 // const now = (incrementSeconds: number = 0) => addSeconds(new Date('2023-09-30T11:55:45'), incrementSeconds)
 const now = () => new Date()
@@ -17,25 +17,25 @@ const intervalRef = ref()
 
 const doubleDigit = (value: number) => value < 10 ? `0${value}` : value
 
-let count = 0
+const count = 0
 
 onMounted(() => {
-  if(!startsAt) {
+  if (!startsAt) {
     console.error('Crash prevented. Livestamp required on Livestamp component')
     return
   }
 
   intervalRef.value = setInterval(() => {
     // Match not yet started
-    if(startsAt > now()) {
+    if (startsAt > now()) {
       return
     }
 
     const totalSecondsPlayed = differenceInSeconds(now(), startsAt)
     const minutesPlaytime = duration.minutesTotal - duration.minutesRest
-// count++
+    // count++
     // Match finished. Stop counter, but do flash time red for 6 minutes to indicate potential extra time
-    if(totalSecondsPlayed > duration.minutesTotal * 60) { // 90 minutes playtime + 15 minutes break
+    if (totalSecondsPlayed > duration.minutesTotal * 60) { // 90 minutes playtime + 15 minutes break
       animate.value = 'flash'
       livestamp.value = `${minutesPlaytime}:00`
 
@@ -43,7 +43,7 @@ onMounted(() => {
       // After that mark game as finished. 6 minutes extra time is an estimation. It's not the end of the world
       // if the screen gives inaccurate timing for a few minutes since the match
       // is about to finish anyway and its not live TV
-      if(totalSecondsPlayed > (duration.minutesTotal + 6) * 60) {
+      if (totalSecondsPlayed > (duration.minutesTotal + 6) * 60) {
         animate.value = ''
         livestamp.value = 'klaar'
         clearInterval(intervalRef.value)
@@ -58,7 +58,7 @@ onMounted(() => {
 
     // Do not increment counter during halftime
     const minutesHalfTimeFinished = minutesToHalfTime + duration.minutesRest
-    if(minutesPlayed > minutesToHalfTime && minutesPlayed < minutesHalfTimeFinished) {
+    if (minutesPlayed > minutesToHalfTime && minutesPlayed < minutesHalfTimeFinished) {
       livestamp.value = 'rust'
       return
     }
@@ -66,7 +66,7 @@ onMounted(() => {
     const seconds = totalSecondsPlayed % 60
 
     // We want 'actual' minutes played, remove halftime minutes
-    if(minutesPlayed > minutesHalfTimeFinished) {
+    if (minutesPlayed > minutesHalfTimeFinished) {
       livestamp.value = `${doubleDigit(minutesPlayed - duration.minutesRest)}:${doubleDigit(seconds)}`
       return
     }
@@ -74,7 +74,6 @@ onMounted(() => {
     livestamp.value = `${doubleDigit(minutesPlayed)}:${doubleDigit(seconds)}`
   }, 1000)
 })
-
 </script>
 
 <template>

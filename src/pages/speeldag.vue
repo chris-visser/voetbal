@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MatchParticipant } from '~/types/match'
+import type { MatchParticipant } from '~/types/match'
 
 const { days, refresh } = await useSchedule()
 
@@ -16,9 +16,9 @@ const day = computed(() => {
 const teams = computed(() => {
   return day.value.matches.reduce<MatchParticipant[]>((list, match) => {
     return [
-        ...list,
-        match.home,
-        ...(match.away ? [match.away] : [])
+      ...list,
+      match.home,
+      ...(match.away ? [match.away] : []),
     ]
   }, [])
 })
@@ -26,7 +26,5 @@ console.log(teams.value)
 </script>
 
 <template>
-  <main>
-
-  </main>
+  <main />
 </template>
