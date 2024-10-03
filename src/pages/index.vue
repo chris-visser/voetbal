@@ -69,7 +69,10 @@ const sponsorLogos = computed(() => {
 
 <template>
   <main class="relative flex flex-wrap justify-between items-start w-full p-8 h-screen max-w-screen overflow-hidden">
-    <div class="h-full flex flex-col justify-between">
+    <div class="overflow-hidden h-screen w-screen inset-0 fixed">
+      <BackgroundVideo />
+    </div>
+    <div class="h-full flex flex-col justify-between relative">
       <PlayDayCompact
         :date="day.date"
         :matches="day.matches"
@@ -108,7 +111,7 @@ const sponsorLogos = computed(() => {
       >
     </div>
 
-    <div class="max-w-1/3 h-full">
+    <div class="max-w-1/3 h-full relative">
       <BallSponsor class="h-full" />
     </div>
   </main>

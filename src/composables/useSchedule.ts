@@ -1,11 +1,5 @@
 import { getDay } from 'date-fns'
-import type { Match } from '~/types/match'
-
-type MatchDay = {
-  matches: Match[]
-  day: number
-  date: Date
-}
+import type { Match, MatchDay } from '~/types/match'
 
 export const useSchedule = async () => {
   const { data: program, refresh } = await useFetch<{ matches: Match[] }>('/api/program', {

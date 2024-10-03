@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
       version: VERSION,
     }
   }
-  console.log(event.headers)
+
   const clientName = ipMap[forwardedFor]
   if (!clientName) {
     console.log(`Version ping from unknown IP "${forwardedFor}" `)

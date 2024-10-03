@@ -32,3 +32,9 @@ export type Match = {
   referee?: MatchParticipant
   type: EventType
 }
+
+export type MatchDay = {
+  matches: Match[]
+  day: number
+  date: Date
+}

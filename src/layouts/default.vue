@@ -22,10 +22,6 @@ watchEffect(() => {
 
 <template>
   <div>
-    <div class="overflow-hidden h-screen w-screen absolute">
-      <BackgroundVideo />
-    </div>
-
     <slot />
   </div>
 </template>
