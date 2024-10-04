@@ -68,7 +68,7 @@ const sponsorLogos = computed(() => {
 </script>
 
 <template>
-  <main class="relative flex flex-wrap justify-between items-start w-full p-8 h-screen max-w-screen overflow-hidden">
+  <main class="relative flex justify-between gap-8 items-start w-full p-8 h-screen max-w-screen overflow-hidden">
     <div class="overflow-hidden h-screen w-screen inset-0 fixed">
       <BackgroundVideo />
     </div>
@@ -103,15 +103,15 @@ const sponsorLogos = computed(() => {
       </ul>
     </div>
 
-    <div class="h-full flex flex-col justify-center">
+    <div class="h-full flex items-center">
       <img
         src="https://data.sportlink.com/clublogo?client_id=1VZsDN7ueJ"
         :alt="`Clublogo van SV de Rijp`"
-        class="w-42 relative -top-[20%]"
+        class="w-full relative -top-[20%]"
       >
     </div>
 
-    <div class="max-w-1/3 h-full relative">
+    <div class="flex-1 max-w-[650px] h-full relative">
       <BallSponsor class="h-full" />
     </div>
   </main>
