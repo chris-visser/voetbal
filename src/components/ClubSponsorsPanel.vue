@@ -37,7 +37,7 @@ const sponsors = [{
     <h2 class="font-bold text-3xl mb-8 text-center text-primary-400">
       Sponsors
     </h2>
-    <ul class="grid grid-cols-4 gap-8 w-full">
+    <ul class="grid grid-cols-3 gap-8 w-full">
       <li
         v-for="({ name, logo }) in sponsors"
         :key="name"
