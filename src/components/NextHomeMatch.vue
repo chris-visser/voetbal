@@ -5,11 +5,11 @@
     </PagePanelTitle>
     <div class="flex justify-center items-center gap-16">
       <figure class="flex flex-col items-center gap-4">
-        <img
+        <NuxtImg
           src="https://data.sportlink.com/clublogo?client_id=1VZsDN7ueJ"
           alt="Logo SV de Rijp"
           class="h-24 max-w-24 max-h-24"
-        >
+        />
         <figcaption class="text-2xl text-center whitespace-nowrap font-semibold">
           SV de Rijp 1
         </figcaption>
@@ -40,7 +40,7 @@
     <PagePanelTitle>
       Balsponsor 1e elftal
     </PagePanelTitle>
-    <h3 class="font-bold text-2xl">
+    <h3 class="font-bold text-2xl mb-4">
       Schildersbedrijf de Tapperij (Erik Roele)
     </h3>
   </PagePanel>
