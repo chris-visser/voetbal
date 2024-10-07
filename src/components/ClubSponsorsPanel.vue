@@ -33,7 +33,7 @@ const sponsors = [{
 </script>
 
 <template>
-  <section class="p-8 bg-white rounded-md">
+  <PagePanel>
     <h2 class="font-bold text-3xl mb-8 text-center text-primary-400">
       Sponsors
     </h2>
@@ -50,5 +50,5 @@ const sponsors = [{
         />
       </li>
     </ul>
-  </section>
+  </PagePanel>
 </template>

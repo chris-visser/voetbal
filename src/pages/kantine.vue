@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { renderSVG } from 'uqr'
-import ClubSponsorsPanel from '~/components/ClubSponsorsPanel.vue'
+import NextHomeMatch from '~/components/NextHomeMatch.vue'
 
 useHead({
   title: 'Speeldag overzicht - SV de Rijp',
@@ -46,6 +46,14 @@ const day = computed(() => {
 })
 
 const qrCodeSvg = renderSVG('https://svderijp.nl')
+
+const showFirst = ref(true)
+
+onMounted(() => {
+  setInterval(() => {
+    showFirst.value = !showFirst.value
+  }, 1000 * 60) // 1 minute
+})
 </script>
 
 <template>
@@ -67,7 +75,13 @@ const qrCodeSvg = renderSVG('https://svderijp.nl')
     </div>
 
     <div class="flex-1 max-w-[900px] flex flex-col justify-between h-full relative">
-      <ClubSponsorsPanel />
+      <Transition
+        name="slide"
+        mode="out-in"
+      >
+        <NextHomeMatch v-if="showFirst" />
+        <ClubSponsorsPanel v-else />
+      </Transition>
       <section class="text-right text-shadow text-3xl flex gap-8 pt-4 items-center justify-end">
         <p class="text-white">
           Meer info te vinden op
@@ -85,3 +99,18 @@ const qrCodeSvg = renderSVG('https://svderijp.nl')
     </div>
   </main>
 </template>
+
+<style scoped>
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.6s ease-out;
+}
+
+.slide-enter-from {
+  opacity: 0;
+}
+
+.slide-leave-to {
+  opacity: 1;
+}
+</style>
