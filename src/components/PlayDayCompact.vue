@@ -21,7 +21,7 @@ const isTheDay = computed(() => (
 </script>
 
 <template>
-  <section class="p-8 bg-white rounded-md mb-8">
+  <section class="p-8 bg-white rounded-md flex flex-col items-center">
     <h2 class="font-bold text-3xl text-center mb-8 text-primary-400">
       Thuisprogramma {{ formatDate(date, 'EEEE') }}
     </h2>

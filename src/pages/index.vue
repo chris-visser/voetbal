@@ -72,21 +72,17 @@ const sponsorLogos = computed(() => {
     <div class="overflow-hidden h-screen w-screen inset-0 fixed">
       <BackgroundVideo />
     </div>
-    <div class="h-full flex flex-col justify-between relative">
+    <div class="h-full flex flex-col gap-8 items-start justify-between relative">
+      <MainSponsors
+        :day-number="day.day"
+        class="w-full"
+      />
+
       <PlayDayCompact
         :date="day.date"
         :matches="day.matches"
+        class="w-full"
       />
-
-      <MainSponsors :day-number="day.day" />
-    </div>
-
-    <div class="h-full flex items-center">
-      <img
-        src="https://data.sportlink.com/clublogo?client_id=1VZsDN7ueJ"
-        :alt="`Clublogo van SV de Rijp`"
-        class="w-full relative -top-[20%]"
-      >
     </div>
 
     <div class="flex-1 max-w-[650px] h-full relative">
@@ -94,9 +90,3 @@ const sponsorLogos = computed(() => {
     </div>
   </main>
 </template>
-
-<style lang="postcss" scoped>
-.text-shadow {
-  text-shadow: 1px 1px 2px black;
-}
-</style>

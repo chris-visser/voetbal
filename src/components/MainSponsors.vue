@@ -29,7 +29,7 @@ const sponsorLogos = computed(() => {
 </script>
 
 <template>
-  <ul class="flex flex-1 content-center items-end gap-8 justify-between self-end w-full">
+  <ul class="flex content-center items-start gap-8 w-full">
     <li class="bg-white rounded-lg h-[120px] py-8 flex-1 max-w-[280px] flex items-center justify-center">
       <img
         :src="sponsorLogos[0].src"
@@ -37,12 +37,14 @@ const sponsorLogos = computed(() => {
         class="object-fill p-8"
       >
     </li>
-    <li class="text-4xl text-shadow h-[120px] w-32 text-white font-bold flex justify-center items-center flex-col">
-      <Icon
-        name="ic:baseline-access-time"
-        size="60"
-      />
-      <PlaytimeClock />
+    <li>
+      <PlaytimeClock>
+        <img
+          src="https://data.sportlink.com/clublogo?client_id=1VZsDN7ueJ"
+          :alt="`Clublogo van SV de Rijp`"
+          class="relative h-[120px] mb-8"
+        >
+      </PlaytimeClock>
     </li>
     <li class="bg-white rounded-lg h-[120px] py-8 flex-1 max-w-[280px] flex items-center justify-center">
       <img

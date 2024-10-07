@@ -1,7 +1,8 @@
 <template>
   <section class="p-8 bg-white rounded-md items-center">
-    <h2 class="font-bold text-3xl mb-8 mt-4 text-primary-400">
-      Gezocht: Versterking van het Technisch Hart!
+    <h2 class="font-bold text-3xl mb-4 text-primary-400">
+      Gezocht:<br>
+      Versterking van het Technisch Hart!
     </h2>
 
     <p class="mb-4 bt-8\4 text-justify">

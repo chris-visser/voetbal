@@ -10,7 +10,17 @@ onMounted(async () => {
 </script>
 
 <template>
-  <time :datetime="now.toLocaleString()">
+  <time
+    :datetime="now.toLocaleString()"
+    class="text-shadow w-32 text-white font-bold flex justify-center items-center flex-col text-5xl"
+  >
+    <slot />
     {{ formatDate(now, 'HH:mm:ss') }}
   </time>
 </template>
+
+<style scoped>
+.text-shadow {
+  text-shadow: 1px 1px 2px black;
+}
+</style>
