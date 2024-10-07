@@ -42,7 +42,7 @@ const sponsorLogos = computed(() => {
         <img
           src="https://data.sportlink.com/clublogo?client_id=1VZsDN7ueJ"
           :alt="`Clublogo van SV de Rijp`"
-          class="relative h-[120px] mb-8"
+          class="relative h-[120px] mb-12"
         >
       </PlaytimeClock>
     </li>

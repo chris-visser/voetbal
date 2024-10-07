@@ -18,9 +18,3 @@ onMounted(async () => {
     {{ formatDate(now, 'HH:mm:ss') }}
   </time>
 </template>
-
-<style scoped>
-.text-shadow {
-  text-shadow: 1px 1px 2px black;
-}
-</style>

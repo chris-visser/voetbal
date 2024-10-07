@@ -41,30 +41,6 @@ onMounted(() => {
 const day = computed(() => {
   return days.value[0]
 })
-
-const sponsorLogos = computed(() => {
-  const items = [{
-    src: '/sponsors/ranko.png',
-    alt: 'Logo co-hoofdsponsor Ranko',
-    dayNumber: 0,
-  }, {
-    src: '/sponsors/plus.png',
-    alt: 'Logo co-hoofdsponsor Plus Supermarkt',
-    dayNumber: 0,
-  }, {
-    src: '/sponsors/duinmaijer.png',
-    alt: 'Logo sponsor Duinmaijer',
-    dayNumber: 6,
-  }, {
-    src: '/sponsors/roelofsen.png',
-    alt: 'Logo sponsor Roelofsen',
-    dayNumber: 6,
-  }]
-
-  const dayItems = items.filter(item => item.dayNumber === days.value[0].day)
-
-  return dayItems.length > 0 ? dayItems : [items[0], items[1]]
-})
 </script>
 
 <template>

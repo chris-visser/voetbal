@@ -1,21 +1,24 @@
 <script setup lang="ts">
+import { renderSVG } from 'uqr'
+import ClubSponsorsPanel from '~/components/ClubSponsorsPanel.vue'
+
 useHead({
-  title: 'Kantine - SV de Rijp',
+  title: 'Speeldag overzicht - SV de Rijp',
   meta: [
     {
       hid: 'description',
       name: 'description',
-      content: 'Kantine overzicht - SV de Rijp',
+      content: 'Speeldag overzicht - SV de Rijp',
     },
     {
       hid: 'og:title',
       property: 'og:title',
-      content: 'Kantine overzicht - SV de Rijp',
+      content: 'Speeldag overzicht - SV de Rijp',
     },
     {
       hid: 'og:description',
       property: 'og:description',
-      content: 'Kantine - SV de Rijp',
+      content: 'Programma en kleedkameroverzicht SV de Rijp',
     },
     {
       hid: 'og:image',
@@ -41,47 +44,44 @@ onMounted(() => {
 const day = computed(() => {
   return days.value[0]
 })
+
+const qrCodeSvg = renderSVG('https://svderijp.nl')
 </script>
 
 <template>
-  <main class="relative flex gap-16 justify-between items-start w-full p-8 h-screen max-w-screen overflow-hidden">
-    <BackgroundVideo />
-    <div class="h-full flex flex-col justify-between relative">
+  <main class="relative flex justify-between gap-8 items-start w-full p-8 h-screen max-w-screen overflow-hidden">
+    <div class="overflow-hidden h-screen w-screen inset-0 fixed">
+      <BackgroundVideo />
+    </div>
+    <div class="h-full flex flex-col gap-8 items-start justify-between relative">
+      <MainSponsors
+        :day-number="day.day"
+        class="w-full"
+      />
+
       <PlayDayCompact
         :date="day.date"
         :matches="day.matches"
+        class="w-full"
       />
-
-      <MainSponsors :day-number="day.day" />
     </div>
 
-    <div class="h-full flex flex-col justify-center">
-      <img
-        src="https://data.sportlink.com/clublogo?client_id=1VZsDN7ueJ"
-        :alt="`Clublogo van SV de Rijp`"
-        class="w-42 relative -top-[20%]"
-      >
-    </div>
-    <div class="flex-1 h-full relative">
-      <!-- <div class="flex gap-8 mb-8">
-        <TeamRankingSummaryPanel
-          class="flex-1"
-          name="De Rijp 1"
-          team-id=""
-        />
-        <TeamRankingSummaryPanel
-          class="flex-1"
-          name="De Rijp 2"
-          team-id=""
-        />
-      </div> -->
+    <div class="flex-1 max-w-[900px] flex flex-col justify-end h-full relative">
       <ClubSponsorsPanel />
+      <section class="text-right text-shadow text-3xl flex-1 flex gap-8 py-4 items-center justify-end">
+        <p class="text-white">
+          Meer info te vinden op
+          <a
+            href="https://svderijp.nl"
+            class="underline text-red-600"
+          >svderijp.nl
+          </a>
+        </p>
+        <div
+          class="w-full max-w-24"
+          v-html="qrCodeSvg"
+        />
+      </section>
     </div>
   </main>
 </template>
-
-<style lang="postcss" scoped>
-.text-shadow {
-  text-shadow: 1px 1px 2px black;
-}
-</style>
