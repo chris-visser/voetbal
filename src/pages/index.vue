@@ -78,29 +78,7 @@ const sponsorLogos = computed(() => {
         :matches="day.matches"
       />
 
-      <ul class="flex flex-1 content-center items-end gap-8 justify-between self-end w-full">
-        <li class="bg-white rounded-lg h-[120px] py-8 flex-1 max-w-[280px] flex items-center justify-center">
-          <img
-            :src="sponsorLogos[0].src"
-            :alt="sponsorLogos[0].alt"
-            class="object-fill p-8"
-          >
-        </li>
-        <li class="text-4xl text-shadow h-[120px] w-32 text-white font-bold flex justify-center items-center flex-col">
-          <Icon
-            name="ic:baseline-access-time"
-            size="60"
-          />
-          <PlaytimeClock />
-        </li>
-        <li class="bg-white rounded-lg h-[120px] py-8 flex-1 max-w-[280px] flex items-center justify-center">
-          <img
-            :src="sponsorLogos[1].src"
-            :alt="sponsorLogos[1].alt"
-            class="object-fill p-8"
-          >
-        </li>
-      </ul>
+      <MainSponsors :day-number="day.day" />
     </div>
 
     <div class="h-full flex items-center">

@@ -37,7 +37,7 @@ const sponsorLogos = computed(() => {
         class="object-fill p-8"
       >
     </li>
-    <li class="text-4xl text-shadow h-[120px] text-white font-bold flex justify-center items-center flex-col">
+    <li class="text-4xl text-shadow h-[120px] w-32 text-white font-bold flex justify-center items-center flex-col">
       <Icon
         name="ic:baseline-access-time"
         size="60"

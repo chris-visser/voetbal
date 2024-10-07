@@ -3,11 +3,14 @@ import { formatDate } from '~/helpers/formatDate'
 
 const now = ref(new Date())
 
-onMounted(() => {
+onMounted(async () => {
+  await nextTick()
   setInterval(() => now.value = new Date(), 1000)
 })
 </script>
 
 <template>
-  {{ formatDate(now, 'HH:mm:ss') }}
+  <time :datetime="now.toLocaleString()">
+    {{ formatDate(now, 'HH:mm:ss') }}
+  </time>
 </template>

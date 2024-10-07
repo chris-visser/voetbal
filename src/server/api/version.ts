@@ -8,11 +8,12 @@ const ipMap: Record<string, string> = {
   '83.84.2.172': 'Thuis',
 }
 
-const VERSION = 'v0.5.0'
+const VERSION = 'v0.5.1'
 
 export default defineEventHandler(async (event) => {
   const forwardedFor = getHeader(event, 'x-forwarded-for')
-
+  const query = getQuery(event)
+  console.log(query.screenSize)
   if (!forwardedFor) {
     console.log('Could not find x-forwarded-for header', event.headers)
     return {

@@ -1,5 +1,13 @@
 <script lang="ts" setup>
-const { data, refresh } = await useFetch<{ version: string }>('/api/version')
+const { data, refresh } = await useFetch<{ version: string }>('/api/version', {
+  server: false,
+  params: {
+    screenSize: {
+      width: window?.innerWidth,
+      height: window?.innerHeight,
+    },
+  },
+})
 
 onMounted(() => {
   setInterval(() => {
@@ -12,7 +20,12 @@ onMounted(() => {
 const prevVersion = ref(data.value?.version)
 
 watchEffect(() => {
-  if (prevVersion.value === data.value?.version) {
+  const isInitialLoad = prevVersion.value === undefined
+  if (isInitialLoad) {
+    return
+  }
+  const hasVersionUpdated = prevVersion.value === data.value?.version
+  if (hasVersionUpdated) {
     return
   }
   prevVersion.value = data.value?.version
