@@ -66,9 +66,9 @@ const qrCodeSvg = renderSVG('https://svderijp.nl')
       />
     </div>
 
-    <div class="flex-1 max-w-[900px] flex flex-col justify-end h-full relative">
+    <div class="flex-1 max-w-[900px] flex flex-col justify-between h-full relative">
       <ClubSponsorsPanel />
-      <section class="text-right text-shadow text-3xl flex-1 flex gap-8 py-4 items-center justify-end">
+      <section class="text-right text-shadow text-3xl flex gap-8 pt-4 items-center justify-end">
         <p class="text-white">
           Meer info te vinden op
           <a
