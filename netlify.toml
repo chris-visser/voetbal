@@ -1,4 +1,4 @@
 [build]
     base = "/"
-    command = "npx convex deploy --cmd 'bun run build'
+    command = "npx convex deploy --cmd 'bun run build'"
     publish = "dist"
