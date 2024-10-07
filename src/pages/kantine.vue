@@ -47,11 +47,11 @@ const day = computed(() => {
 
 const qrCodeSvg = renderSVG('https://svderijp.nl')
 
-const showFirst = ref(true)
+const showFirst = ref(false)
 
 onMounted(() => {
   setInterval(() => {
-    showFirst.value = !showFirst.value
+    // showFirst.value = !showFirst.value
   }, 1000 * 60) // 1 minute
 })
 </script>

@@ -20,8 +20,10 @@
     "typescript": "^5.6.2"
   },
   "dependencies": {
+    "@convex-vue/core": "^0.0.4",
     "@date-fns/tz": "^1.1.2",
     "@nuxt/image": "1.8.1",
+    "convex": "^1.16.3",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "uqr": "^0.1.2"

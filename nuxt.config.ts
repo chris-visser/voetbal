@@ -12,6 +12,11 @@ export default defineNuxtConfig({
       },
     },
   },
+  runtimeConfig: {
+    public: {
+      convexUrl: process.env.CONVEX_URL,
+    },
+  },
 
   image: {
     domains: ['nuxtjs.org'],
