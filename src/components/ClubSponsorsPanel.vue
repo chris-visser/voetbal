@@ -2,7 +2,7 @@
 import { useConvexQuery } from '@convex-vue/core'
 import { api } from '~~/convex/_generated/api'
 
-const { data, isLoading, suspense } = useConvexQuery(api.sponsors.get, {})
+const { data, suspense } = useConvexQuery(api.sponsors.get, {})
 
 await suspense()
 </script>
@@ -19,10 +19,12 @@ await suspense()
         class="flex items-center justify-center"
       >
         <NuxtImg
+          v-if="logoUrl"
           :src="logoUrl"
           :alt="`Logo van ${name}`"
           class="object-fill w-full"
         />
+        <span v-else>{{ name }}</span>
       </li>
     </ul>
   </PagePanel>
