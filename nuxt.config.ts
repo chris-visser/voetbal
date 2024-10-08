@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-
+    domains: ['harmless-curlew-467.convex.cloud'],
   },
 
   build: {
