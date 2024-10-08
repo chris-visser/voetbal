@@ -95,10 +95,11 @@ const isTheDay = computed(() => (
             Afgelast
           </td>
           <td>
-            <img
+            <NuxtImg
               :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.home.clubCode}`"
+              preload
               class="max-w-[100px] text-xs max-h-[25px] m-auto object-fill"
-            >
+            />
           </td>
           <td
             class="p-2 whitespace-nowrap pr-6 items-center"
@@ -119,11 +120,12 @@ const isTheDay = computed(() => (
           </td>
 
           <td class="">
-            <img
+            <NuxtImg
               v-if="item.away"
               :src="`https://logoapi.voetbal.nl/logo.php?clubcode=${item.away.clubCode}`"
+              preload
               class="max-w-[100px] text-xs max-h-[25px] m-auto object-fill"
-            >
+            />
           </td>
 
           <td

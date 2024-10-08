@@ -19,7 +19,11 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: ['harmless-curlew-467.convex.cloud'],
+    domains: [
+      'harmless-curlew-467.convex.cloud',
+      'data.sportlink.com',
+      'logoapi.voetbal.nl',
+    ],
   },
 
   build: {

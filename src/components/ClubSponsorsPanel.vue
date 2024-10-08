@@ -21,6 +21,7 @@ await suspense()
         <NuxtImg
           v-if="logoUrl"
           :src="logoUrl"
+          preload
           :alt="`Logo van ${name}`"
           class="object-fill w-full"
         />

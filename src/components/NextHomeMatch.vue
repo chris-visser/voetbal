@@ -8,6 +8,7 @@
         <NuxtImg
           src="https://data.sportlink.com/clublogo?client_id=1VZsDN7ueJ"
           alt="Logo SV de Rijp"
+          preload
           class="h-24 max-w-24 max-h-24"
         />
         <figcaption class="text-2xl text-center whitespace-nowrap font-semibold">
@@ -22,6 +23,7 @@
         <NuxtImg
           src="https://logoapi.voetbal.nl/logo.php?clubcode=BBFZ96Q"
           alt="Logo VV Woudia"
+          preload
           class="h-24 max-w-24 max-h-24"
         />
         <figcaption class="text-2xl text-center whitespace-nowrap font-semibold">

@@ -31,27 +31,30 @@ const sponsorLogos = computed(() => {
 <template>
   <ul class="flex content-center items-start gap-8 w-full">
     <li class="bg-white rounded-lg h-[120px] py-8 flex-1 max-w-[280px] flex items-center justify-center">
-      <img
+      <NuxtImg
         :src="sponsorLogos[0].src"
         :alt="sponsorLogos[0].alt"
+        preload
         class="object-fill p-8"
-      >
+      />
     </li>
     <li>
       <PlaytimeClock>
-        <img
+        <NuxtImg
           src="https://data.sportlink.com/clublogo?client_id=1VZsDN7ueJ"
           :alt="`Clublogo van SV de Rijp`"
+          preload
           class="relative h-[120px] mb-12"
-        >
+        />
       </PlaytimeClock>
     </li>
     <li class="bg-white rounded-lg h-[120px] py-8 flex-1 max-w-[280px] flex items-center justify-center">
-      <img
+      <NuxtImg
         :src="sponsorLogos[1].src"
         :alt="sponsorLogos[1].alt"
+        preload
         class="object-fill p-8"
-      >
+      />
     </li>
   </ul>
 </template>
