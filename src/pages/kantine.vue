@@ -76,8 +76,9 @@ onMounted(() => {
         name="slide"
         mode="out-in"
       >
-        <NextHomeMatch v-if="showFirst" />
-        <ClubSponsorsPanel v-else />
+        <NewsItem />
+        <!-- <NextHomeMatch v-if="showFirst" /> -->
+        <!-- <ClubSponsorsPanel v-else /> -->
       </Transition>
       <section class="text-right text-shadow text-3xl flex gap-8 pt-4 items-center justify-end">
         <p class="text-white">
