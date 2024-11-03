@@ -3,7 +3,10 @@ import { useConvexQuery } from '@convex-vue/core'
 import { api } from '~~/convex/_generated/api'
 
 const { data, suspense } = useConvexQuery(api.sponsors.get, {})
-
+const sponsors = useSponsors()
+watchEffect(() => {
+  console.log(data.value)
+})
 await suspense()
 </script>
 

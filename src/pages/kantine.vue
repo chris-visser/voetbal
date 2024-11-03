@@ -47,13 +47,17 @@ const day = computed(() => {
 
 const qrCodeSvg = renderSVG('https://svderijp.nl')
 
-const showFirst = ref(false)
+const showNumber = ref(1)
 
-onMounted(() => {
-  setInterval(() => {
-    showFirst.value = !showFirst.value
-  }, 1000 * 60) // 1 minute
-})
+// onMounted(() => {
+//   setInterval(() => {
+//     console.log(showNumber.value)
+//     if (showNumber.value === 2) {
+//       return showNumber.value = 0
+//     }
+//     showNumber.value = showNumber.value + 1
+//   }, 3000) // 1 minute
+// })
 </script>
 
 <template>
@@ -72,14 +76,14 @@ onMounted(() => {
     </div>
 
     <div class="flex-1 max-w-[900px] flex flex-col justify-between h-full relative">
-      <Transition
+      <!-- <NextHomeMatch v-if="showNumber === 1" /> -->
+      <TransitionGroup
         name="slide"
         mode="out-in"
       >
-        <NewsItem />
-        <!-- <NextHomeMatch v-if="showFirst" /> -->
-        <!-- <ClubSponsorsPanel v-else /> -->
-      </Transition>
+        <NewsItem v-if="showNumber === 0" />
+        <ClubSponsorsPanel v-if="showNumber === 1" />
+      </TransitionGroup>
       <section class="text-right text-shadow text-3xl flex gap-8 pt-4 items-center justify-end">
         <p class="text-white">
           Meer info te vinden op

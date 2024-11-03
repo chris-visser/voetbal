@@ -111,7 +111,7 @@ const isTheDay = computed(() => (
             {{ item.home.room && item.status !== 'cancelled' ? item.home.room : '...' }}
           </td>
 
-          <td class="py-2 px-8 text-center">
+          <td class="py-2 px-8 text-center min-w-[120px]">
             <Livestamp
               v-if="isTheDay && item.status !== 'cancelled'"
               :starts-at="item.startsAt"

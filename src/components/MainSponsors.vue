@@ -29,13 +29,13 @@ const sponsorLogos = computed(() => {
 </script>
 
 <template>
-  <ul class="flex content-center items-start gap-8 w-full">
+  <ul class="flex content-center items-start gap-8 w-full justify-between">
     <li class="bg-white rounded-lg h-[120px] py-8 flex-1 max-w-[280px] flex items-center justify-center">
       <NuxtImg
         :src="sponsorLogos[0].src"
         :alt="sponsorLogos[0].alt"
         preload
-        class="object-fill p-8"
+        class="object-fill w-full p-8"
       />
     </li>
     <li>
@@ -53,7 +53,7 @@ const sponsorLogos = computed(() => {
         :src="sponsorLogos[1].src"
         :alt="sponsorLogos[1].alt"
         preload
-        class="object-fill p-8"
+        class="object-fill w-full p-8"
       />
     </li>
   </ul>
