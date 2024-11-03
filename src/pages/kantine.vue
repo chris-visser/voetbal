@@ -49,15 +49,15 @@ const qrCodeSvg = renderSVG('https://svderijp.nl')
 
 const showNumber = ref(1)
 
-// onMounted(() => {
-//   setInterval(() => {
-//     console.log(showNumber.value)
-//     if (showNumber.value === 2) {
-//       return showNumber.value = 0
-//     }
-//     showNumber.value = showNumber.value + 1
-//   }, 3000) // 1 minute
-// })
+onMounted(() => {
+  setInterval(() => {
+    console.log(showNumber.value)
+    if (showNumber.value === 2) {
+      return showNumber.value = 0
+    }
+    showNumber.value = showNumber.value + 1
+  }, 1000 * 60) // 1 minute
+})
 </script>
 
 <template>
