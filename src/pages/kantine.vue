@@ -75,14 +75,9 @@ const showNumber = ref(0)
     </div>
 
     <div class="flex-1 max-w-[900px] flex flex-col justify-between h-full relative">
-      <!-- <NextHomeMatch v-if="showNumber === 1" /> -->
-      <TransitionGroup
-        name="slide"
-        mode="out-in"
-      >
-        <NewsItem v-if="showNumber === 0" />
-        <ClubSponsorsPanel v-if="showNumber === 1" />
-      </TransitionGroup>
+
+        <ClubSponsorsPanel />
+
       <section class="text-right text-shadow text-3xl flex gap-8 pt-4 items-center justify-end">
         <p class="text-white">
           Meer info te vinden op
