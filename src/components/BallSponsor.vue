@@ -1,7 +1,7 @@
 <template>
   <section class="p-8 bg-white rounded-md items-center">
     <h2 class="font-bold text-2xl mb-4 text-primary-400">
-      Begin het seizoen goed met korting bij Duijn Teamsport!
+      Begin het seizoen goed, korting bij Duijn Teamsport!
     </h2>
 
     <p class="mb-3 bt-8\4 text-justify">
