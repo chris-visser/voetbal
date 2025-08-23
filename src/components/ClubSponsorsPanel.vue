@@ -12,9 +12,6 @@ await suspense()
 
 <template>
   <PagePanel>
-    <h2 class="font-bold text-3xl mb-4 relative -top-2 text-center text-primary-400">
-      Sponsors
-    </h2>
     <ul class="grid grid-cols-3 gap-8 w-full">
       <li
         v-for="({ name, logoUrl }) in data"
