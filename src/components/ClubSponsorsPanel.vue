@@ -11,7 +11,7 @@ await suspense()
 </script>
 
 <template>
-  <PagePanel>
+  <PagePanel class="pt-2">
     <ul class="grid grid-cols-3 gap-8 w-full">
       <li
         v-for="({ name, logoUrl }) in data"
