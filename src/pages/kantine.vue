@@ -67,18 +67,7 @@ const showNumber = ref(0)
         class="w-full"
       />
 
-      <PlayDayCompact
-        :date="day.date"
-        :matches="day.matches"
-        class="w-full"
-      />
-    </div>
-
-    <div class="flex-1 max-w-[900px] flex flex-col justify-between h-full relative">
-
-        <ClubSponsorsPanel />
-
-      <section class="text-right text-shadow text-3xl flex gap-8 pt-4 items-center justify-end">
+            <section class="text-right text-shadow text-3xl flex gap-8 pt-4 items-center justify-end">
         <p class="text-white">
           Meer info te vinden op
           <a
@@ -92,6 +81,17 @@ const showNumber = ref(0)
           v-html="qrCodeSvg"
         />
       </section>
+
+      <PlayDayCompact
+        :date="day.date"
+        :matches="day.matches"
+        class="w-full"
+      />
+    </div>
+
+    <div class="flex-1 max-w-[900px] flex flex-col justify-between h-full relative">
+
+        <ClubSponsorsPanel />
     </div>
   </main>
 </template>
