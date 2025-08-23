@@ -60,7 +60,7 @@ const showNumber = ref(0)
 </script>
 
 <template>
-  <main class="relative flex justify-between gap-8 items-start w-full p-16 h-screen max-w-screen overflow-hidden bg-[url('/drone-background.png')] bg-cover">
+  <main class="relative flex justify-between gap-8 items-start w-full p-12 h-screen max-w-screen overflow-hidden bg-[url('/drone-background.png')] bg-cover">
     <div class="h-full flex flex-col gap-8 items-start justify-between relative">
       <MainSponsors
         :day-number="day.day"
